@@ -3,258 +3,793 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>TiTu Shop | Online Shopping</title>
+<meta name="description" content="TiTu Shop - Online Shopping">
+<title>TiTu Shop</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#f5f7fb;
-color:#172033;
-line-height:1.5
+  background:#f4f7fb;
+  color:#172033;
 }
-button{cursor:pointer}
+
+button,input,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
 header{
-position:sticky;top:0;z-index:1000;
-background:#111827;color:white;
-box-shadow:0 2px 12px #0002
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#111827;
+  color:white;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
+
 .header{
-max-width:1150px;margin:auto;padding:13px 15px;
-display:flex;align-items:center;justify-content:space-between;
-gap:10px
+  max-width:1200px;
+  margin:auto;
+  min-height:70px;
+  padding:10px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
 }
-.logo{font-size:24px;font-weight:800}
-.header button{
-border:0;border-radius:9px;padding:10px 13px;
-font-weight:bold;margin-left:4px
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  color:white;
 }
-.adminBtn{background:#f59e0b}
-.cartBtn{background:white;color:#111827}
+
+.logo span{
+  color:#60a5fa;
+}
+
+.header-actions{
+  display:flex;
+  gap:8px;
+}
+
+.header-btn{
+  border:0;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:bold;
+}
+
+.admin-btn{
+  background:#f59e0b;
+  color:#111;
+}
+
+.cart-btn{
+  background:white;
+  color:#111827;
+}
+
+/* HERO */
 
 .hero{
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-color:white;text-align:center;padding:55px 15px
-}
-.hero h1{font-size:40px;margin-bottom:8px}
-.hero p{font-size:17px}
-
-.search{
-max-width:700px;margin:-25px auto 25px;padding:0 15px;
-position:relative
-}
-.search input{
-width:100%;padding:16px 18px;border:0;border-radius:12px;
-font-size:16px;box-shadow:0 4px 18px #0002;outline:none
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:65px 18px;
+  text-align:center;
 }
 
-.container{max-width:1150px;margin:auto;padding:15px}
-.sectionTitle{margin:15px 0 20px}
+.hero h1{
+  font-size:42px;
+  margin-bottom:12px;
+}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:20px
+.hero p{
+  font-size:18px;
+  opacity:.95;
 }
-.card{
-background:white;border-radius:15px;overflow:hidden;
-box-shadow:0 3px 15px #0001
-}
-.card img{
-width:100%;height:220px;object-fit:cover;
-background:#eee
-}
-.info{padding:15px}
-.info h3{margin-bottom:6px}
-.desc{color:#666;font-size:14px;min-height:42px}
-.price{font-size:21px;font-weight:bold;margin:10px 0}
-.stock{font-size:13px;font-weight:bold}
-.in{color:#16a34a}.out{color:#dc2626}
 
-.btn{
-width:100%;border:0;border-radius:9px;
-padding:11px;margin-top:7px;font-weight:bold
+.hero-btn{
+  margin-top:25px;
+  padding:13px 24px;
+  border:0;
+  border-radius:10px;
+  background:white;
+  color:#2563eb;
+  font-weight:bold;
 }
-.details{background:#7c3aed;color:white}
-.add{background:#2563eb;color:white}
-.add:disabled{background:#999;cursor:not-allowed}
+
+/* SEARCH */
+
+.search-area{
+  max-width:850px;
+  margin:-25px auto 30px;
+  padding:0 18px;
+  position:relative;
+  z-index:10;
+}
+
+.search-box{
+  background:white;
+  padding:10px;
+  border-radius:14px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+
+.search-box input{
+  width:100%;
+  border:0;
+  outline:0;
+  padding:15px;
+  font-size:16px;
+}
+
+/* PRODUCTS */
+
+.products{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 18px 50px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
+}
+
+.section-title h2{
+  font-size:25px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.product{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,.13);
+}
+
+.product-image{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+.product-info{
+  padding:16px;
+}
+
+.product-info h3{
+  margin-bottom:8px;
+}
+
+.description{
+  color:#64748b;
+  font-size:14px;
+  min-height:38px;
+}
+
+.price{
+  font-size:22px;
+  font-weight:bold;
+  margin:12px 0 5px;
+}
+
+.stock{
+  font-size:13px;
+  margin:5px 0 12px;
+  font-weight:bold;
+}
+
+.stock.in{
+  color:#16a34a;
+}
+
+.stock.out{
+  color:#dc2626;
+}
+
+.product-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.product-buttons button{
+  border:0;
+  padding:11px 6px;
+  border-radius:9px;
+  color:white;
+  font-weight:bold;
+}
+
+.details-btn{
+  background:#7c3aed;
+}
+
+.add-btn{
+  background:#2563eb;
+}
+
+.add-btn:disabled{
+  background:#9ca3af;
+  cursor:not-allowed;
+}
+
+/* MODALS */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:5000;
+  padding:15px;
+  overflow:auto;
+}
+
+.modal-box{
+  background:white;
+  max-width:600px;
+  margin:30px auto;
+  padding:20px;
+  border-radius:18px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:15px;
+  border:0;
+  background:#ef4444;
+  color:white;
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.details-image{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.details-content{
+  padding-top:15px;
+}
+
+.details-content h2{
+  margin:10px 0;
+}
+
+.full-btn{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:10px;
+  color:white;
+  background:#2563eb;
+  font-weight:bold;
+  margin-top:12px;
+}
+
+/* CART */
+
+.cart{
+  position:fixed;
+  right:-450px;
+  top:0;
+  width:min(420px,95%);
+  height:100vh;
+  background:white;
+  z-index:6000;
+  padding:22px;
+  box-shadow:-8px 0 30px rgba(0,0,0,.2);
+  transition:.3s;
+  overflow-y:auto;
+}
+
+.cart.active{
+  right:0;
+}
+
+.cart h2{
+  margin:20px 0;
+}
+
+.cart-item{
+  border-bottom:1px solid #e5e7eb;
+  padding:14px 0;
+}
+
+.cart-item-title{
+  font-weight:bold;
+}
+
+.qty{
+  margin-top:9px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.qty button{
+  border:1px solid #ddd;
+  background:#f3f4f6;
+  padding:5px 10px;
+  border-radius:6px;
+}
+
+.remove-btn{
+  background:#fee2e2!important;
+  color:#dc2626;
+}
+
+.total{
+  font-size:22px;
+  font-weight:bold;
+  padding:18px 0;
+}
+
+.checkout{
+  border-top:1px solid #ddd;
+  padding-top:18px;
+}
+
+.input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border:1px solid #d1d5db;
+  border-radius:9px;
+  outline:none;
+}
+
+textarea{
+  resize:vertical;
+  min-height:90px;
+}
+
+.order-btn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#16a34a;
+  color:white;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* LOGIN */
+
+.login-box{
+  max-width:400px;
+  margin:90px auto;
+  background:white;
+  padding:25px;
+  border-radius:18px;
+}
+
+.login-box h2{
+  margin-bottom:15px;
+}
+
+.login-btn{
+  width:100%;
+  padding:13px;
+  background:#2563eb;
+  color:white;
+  border:0;
+  border-radius:9px;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* ADMIN */
+
+.admin-box{
+  max-width:1100px;
+  margin:25px auto;
+  background:white;
+  padding:20px;
+  border-radius:18px;
+}
+
+.admin-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.logout{
+  background:#ef4444;
+  color:white;
+  border:0;
+  padding:9px 13px;
+  border-radius:8px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
+  margin:20px 0;
+}
+
+.stat{
+  padding:18px;
+  border-radius:12px;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+
+.stat small{
+  color:#64748b;
+}
+
+.stat strong{
+  display:block;
+  font-size:25px;
+  margin-top:7px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin:20px 0;
+}
+
+.tab{
+  border:0;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#e5e7eb;
+}
+
+.tab.active{
+  background:#2563eb;
+  color:white;
+}
+
+.admin-card{
+  border:1px solid #e5e7eb;
+  padding:14px;
+  border-radius:12px;
+  margin:12px 0;
+}
+
+.admin-card img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:8px;
+  float:left;
+  margin-right:12px;
+}
+
+.clear{
+  clear:both;
+}
+
+.admin-actions{
+  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.admin-actions button{
+  border:0;
+  padding:8px 11px;
+  border-radius:7px;
+}
+
+.edit{
+  background:#f59e0b;
+}
+
+.delete{
+  background:#ef4444;
+  color:white;
+}
+
+.confirm{
+  background:#2563eb;
+  color:white;
+}
+
+.delivered{
+  background:#16a34a;
+  color:white;
+}
+
+.cancel{
+  background:#6b7280;
+  color:white;
+}
+
+.add-product{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:9px;
+  background:#16a34a;
+  color:white;
+  font-weight:bold;
+}
+
+.form{
+  margin-top:15px;
+  padding:15px;
+  background:#f8fafc;
+  border-radius:12px;
+}
+
+.save-product{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:9px;
+  background:#2563eb;
+  color:white;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.cancel-form{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:9px;
+  background:#6b7280;
+  color:white;
+  margin-top:7px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#fef3c7;
+  color:#92400e;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.empty{
+  text-align:center;
+  color:#64748b;
+  padding:25px;
+}
 
 footer{
-margin-top:50px;background:#111827;color:white;
-text-align:center;padding:25px
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+  margin-top:20px;
 }
 
-/* Modal */
-.modal{
-display:none;position:fixed;inset:0;background:#000b;
-z-index:3000;padding:15px;overflow:auto
-}
-.modalBox{
-background:white;max-width:650px;margin:30px auto;
-padding:20px;border-radius:15px;position:relative
-}
-.close{
-position:absolute;right:12px;top:12px;
-border:0;background:#ef4444;color:white;
-border-radius:7px;padding:8px 11px;font-weight:bold
+footer p{
+  margin:5px;
 }
 
-/* Cart */
-.cart{
-position:fixed;right:-100%;top:0;width:92%;max-width:430px;
-height:100%;background:white;z-index:4000;
-padding:20px;overflow-y:auto;
-box-shadow:-5px 0 20px #0003;transition:.3s
-}
-.cart.active{right:0}
-.cart h2{margin:20px 0}
-.cartItem{
-border-bottom:1px solid #ddd;padding:13px 0
-}
-.qty{margin-top:8px}
-.qty button{
-border:0;background:#e5e7eb;border-radius:5px;
-padding:5px 9px;margin-right:4px
-}
-.total{
-font-size:22px;font-weight:bold;margin:20px 0
-}
-.form input,.form textarea,.form select,
-.checkout input,.checkout textarea{
-width:100%;padding:12px;margin:6px 0;
-border:1px solid #ddd;border-radius:8px;font-size:15px
-}
-textarea{resize:vertical}
-.checkout{border-top:1px solid #ddd;padding-top:15px}
-.orderBtn,.saveBtn{
-width:100%;padding:13px;border:0;border-radius:9px;
-background:#16a34a;color:white;font-weight:bold;margin-top:8px
-}
+/* MOBILE */
 
-/* Login/Admin */
-.login,.admin{
-display:none;position:fixed;inset:0;background:#000b;
-z-index:5000;padding:15px;overflow:auto
-}
-.loginBox{
-max-width:400px;background:white;border-radius:15px;
-padding:25px;margin:80px auto;position:relative
-}
-.loginBox input{
-width:100%;padding:13px;margin:6px 0;
-border:1px solid #ddd;border-radius:8px
-}
-.loginBtn{
-width:100%;padding:13px;border:0;border-radius:8px;
-background:#2563eb;color:white;font-weight:bold;margin-top:8px
-}
-.adminBox{
-max-width:900px;background:#f5f7fb;border-radius:15px;
-padding:20px;margin:20px auto;position:relative
-}
-.stats{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:12px;margin:20px 0
-}
-.stat{
-background:white;padding:17px;border-radius:12px;
-box-shadow:0 2px 10px #0001
-}
-.stat small{color:#666}
-.stat strong{display:block;font-size:25px;margin-top:5px}
-.tabs{display:flex;gap:8px;margin:15px 0;flex-wrap:wrap}
-.tab{
-border:0;padding:10px 15px;border-radius:8px;
-background:#ddd
-}
-.tab.active{background:#2563eb;color:white}
-.order,.adminProduct{
-background:white;border-radius:10px;padding:15px;
-margin:10px 0;border:1px solid #ddd
-}
-.adminProduct img{
-width:65px;height:65px;object-fit:cover;
-border-radius:8px;vertical-align:middle;margin-right:8px
-}
-.action{
-border:0;border-radius:6px;padding:7px 9px;
-margin:4px 2px;font-weight:bold
-}
-.edit{background:#f59e0b}
-.delete{background:#ef4444;color:white}
-.confirm{background:#2563eb;color:white}
-.cancel{background:#ef4444;color:white}
-.logout{background:#111827;color:white}
-.empty{text-align:center;color:#777;padding:25px}
-hr{border:0;border-top:1px solid #ddd;margin:12px 0}
+@media(max-width:600px){
 
-@media(max-width:550px){
-.hero h1{font-size:30px}
-.logo{font-size:20px}
-.header{flex-wrap:wrap}
-.card img{height:190px}
+  .header{
+    min-height:auto;
+    padding:10px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .header-btn{
+    padding:8px 9px;
+    font-size:13px;
+  }
+
+  .hero{
+    padding:45px 15px;
+  }
+
+  .hero h1{
+    font-size:31px;
+  }
+
+  .product-grid{
+    grid-template-columns:
+    repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-image{
+    height:170px;
+  }
+
+  .product-info{
+    padding:11px;
+  }
+
+  .product-info h3{
+    font-size:15px;
+  }
+
+  .price{
+    font-size:18px;
+  }
+
+  .description{
+    font-size:12px;
+  }
+
+  .product-buttons{
+    grid-template-columns:1fr;
+  }
+
+  .details-image{
+    height:250px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 <div class="header">
-<div class="logo">🛍️ TiTu Shop</div>
-<div>
-<button class="adminBtn" onclick="openAdminLogin()">⚙️ Admin</button>
-<button class="cartBtn" onclick="openCart()">
+
+<div class="logo">
+🛍️ <span>TiTu</span> Shop
+</div>
+
+<div class="header-actions">
+
+<button class="header-btn admin-btn"
+onclick="openAdminLogin()">
+⚙️ Admin
+</button>
+
+<button class="header-btn cart-btn"
+onclick="openCart()">
 🛒 Cart (<span id="cartCount">0</span>)
 </button>
+
 </div>
 </div>
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
-<h1>Welcome to TiTu Shop</h1>
-<p>আপনার পছন্দের পণ্য এখন হাতের মুঠোয় 🛍️</p>
+
+<h1>Welcome to TiTu Shop 🛍️</h1>
+
+<p>
+আপনার পছন্দের পণ্য এখন হাতের মুঠোয়
+</p>
+
+<button class="hero-btn"
+onclick="document.getElementById('products').scrollIntoView()">
+🛒 এখনই Shopping করুন
+</button>
+
 </section>
 
-<div class="search">
-<input id="searchInput" type="search"
-placeholder="🔎 পণ্য খুঁজুন..."
+
+<!-- SEARCH -->
+
+<div class="search-area">
+<div class="search-box">
+
+<input
+id="searchInput"
+type="text"
+placeholder="🔎 আপনার পছন্দের পণ্য খুঁজুন..."
 oninput="searchProducts()">
+
+</div>
 </div>
 
-<main class="container">
-<h2 class="sectionTitle">🔥 আমাদের পণ্য</h2>
-<div class="grid" id="productGrid"></div>
-</main>
 
-<footer>
-<p>© 2026 TiTu Shop</p>
-<p>সবার জন্য সহজ Online Shopping</p>
-</footer>
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<div class="section-title">
+<h2>🔥 আমাদের পণ্য</h2>
+<span id="productCount"></span>
+</div>
+
+<div
+class="product-grid"
+id="productGrid">
+</div>
+
+</section>
 
 
-<!-- PRODUCT DETAILS -->
+<!-- DETAILS MODAL -->
+
 <div class="modal" id="detailsModal">
-<div class="modalBox">
-<button class="close" onclick="closeDetails()">✕</button>
 
-<img id="detailsImage"
-style="width:100%;height:300px;object-fit:cover;border-radius:10px">
+<div class="modal-box">
 
-<h2 id="detailsName" style="margin-top:15px"></h2>
-<p id="detailsDescription" style="margin:8px 0;color:#666"></p>
+<button class="close"
+onclick="closeDetails()">✕</button>
+
+<img
+id="detailsImage"
+class="details-image">
+
+<div class="details-content">
+
+<h2 id="detailsName"></h2>
+
+<p id="detailsDescription"></p>
+
 <h2>৳ <span id="detailsPrice"></span></h2>
 
-<button class="btn add" onclick="addDetailsProduct()">
+<p id="detailsStock"></p>
+
+<button
+id="detailsAddBtn"
+class="full-btn"
+onclick="addDetailsProduct()">
 🛒 Cart-এ যোগ করুন
 </button>
+
+</div>
 </div>
 </div>
 
 
 <!-- CART -->
+
 <div class="cart" id="cart">
-<button class="close" onclick="closeCart()">✕</button>
+
+<button class="close"
+onclick="closeCart()">✕</button>
+
 <h2>🛒 আপনার Cart</h2>
 
 <div id="cartItems"></div>
@@ -264,50 +799,95 @@ style="width:100%;height:300px;object-fit:cover;border-radius:10px">
 </div>
 
 <div class="checkout">
+
 <h3>📦 Delivery Information</h3>
 
-<input id="customerName" placeholder="আপনার নাম">
-<input id="customerPhone" type="tel" placeholder="মোবাইল নম্বর">
+<input
+class="input"
+id="customerName"
+placeholder="আপনার নাম">
 
-<textarea id="customerAddress"
+<input
+class="input"
+id="customerPhone"
+type="tel"
+placeholder="মোবাইল নম্বর">
+
+<textarea
+id="customerAddress"
 placeholder="সম্পূর্ণ ঠিকানা"></textarea>
 
-<button class="orderBtn" onclick="placeOrder()">
+<button
+class="order-btn"
+onclick="placeOrder()">
+
 📲 WhatsApp-এ অর্ডার করুন
+
 </button>
+
 </div>
 </div>
 
 
-<!-- LOGIN -->
-<div class="login" id="loginModal">
-<div class="loginBox">
+<!-- ADMIN LOGIN -->
 
-<button class="close" onclick="closeLogin()">✕</button>
+<div class="modal" id="loginModal">
+
+<div class="login-box">
+
+<button class="close"
+onclick="closeLogin()">✕</button>
 
 <h2>🔐 Admin Login</h2>
 
-<input id="adminUsername" placeholder="Username">
-<input id="adminPassword" type="password" placeholder="Password">
+<input
+class="input"
+id="adminUsername"
+placeholder="Username">
 
-<button class="loginBtn" onclick="adminLogin()">Login</button>
+<input
+class="input"
+id="adminPassword"
+type="password"
+placeholder="Password">
 
-<p style="font-size:12px;color:#777;margin-top:10px">
-Demo Login: admin / 1234
+<button
+class="login-btn"
+onclick="adminLogin()">
+Login
+</button>
+
+<p style="font-size:12px;color:#777;margin-top:12px">
+Demo Login: <b>admin</b> / <b>1234</b>
 </p>
+
 </div>
 </div>
 
 
-<!-- ADMIN -->
-<div class="admin" id="adminPanel">
-<div class="adminBox">
+<!-- ADMIN PANEL -->
 
-<button class="close" onclick="closeAdmin()">✕</button>
+<div class="modal" id="adminModal">
+
+<div class="admin-box">
+
+<div class="admin-header">
 
 <h2>📊 TiTu Shop Dashboard</h2>
 
+<button
+class="logout"
+onclick="adminLogout()">
+🚪 Logout
+</button>
+
+</div>
+
+
+<!-- STATS -->
+
 <div class="stats">
+
 <div class="stat">
 <small>Products</small>
 <strong id="statProducts">0</strong>
@@ -327,84 +907,140 @@ Demo Login: admin / 1234
 <small>Sales</small>
 <strong>৳ <span id="statSales">0</span></strong>
 </div>
+
 </div>
 
-<div class="tabs">
-<button class="tab active"
-onclick="showSection('orders',this)">📦 Orders</button>
 
-<button class="tab"
-onclick="showSection('products',this)">🛍️ Products</button>
+<!-- TABS -->
+
+<div class="tabs">
+
+<button
+class="tab active"
+onclick="showAdminSection('orders',this)">
+📦 Orders
+</button>
+
+<button
+class="tab"
+onclick="showAdminSection('products',this)">
+🛍️ Products
+</button>
+
 </div>
 
 
 <!-- ORDERS -->
-<section id="ordersSection">
+
+<div id="ordersSection">
+
 <h3>📦 Customer Orders</h3>
+
 <div id="adminOrders"></div>
-</section>
+
+</div>
 
 
 <!-- PRODUCTS -->
-<section id="productsSection" style="display:none">
+
+<div id="productsSection"
+style="display:none">
 
 <h3>🛍️ Product Management</h3>
 
-<button class="saveBtn" onclick="showProductForm()">
-➕ নতুন Product
+<button
+class="add-product"
+onclick="showProductForm()">
+➕ নতুন Product যোগ করুন
 </button>
 
-<div id="productForm" style="display:none">
-<h3 id="formTitle" style="margin-top:15px">
-নতুন Product
+
+<div
+class="form"
+id="productForm"
+style="display:none">
+
+<h3 id="formTitle">
+➕ নতুন Product
 </h3>
 
-<div class="form">
-<input id="pName" placeholder="Product Name">
-<input id="pPrice" type="number" placeholder="Price">
-<input id="pImage" placeholder="Image URL">
+<input
+class="input"
+id="pName"
+placeholder="Product Name">
 
-<textarea id="pDescription"
+<input
+class="input"
+id="pPrice"
+type="number"
+min="1"
+placeholder="Price">
+
+<input
+class="input"
+id="pImage"
+placeholder="Image URL">
+
+<textarea
+id="pDescription"
 placeholder="Product Description"></textarea>
 
 <select id="pStock">
-<option value="yes">Available / Stock আছে</option>
-<option value="no">Out of Stock</option>
+
+<option value="yes">
+🟢 Stock Available
+</option>
+
+<option value="no">
+🔴 Out of Stock
+</option>
+
 </select>
 
-<button class="saveBtn" onclick="saveProduct()">
+<button
+class="save-product"
+onclick="saveProduct()">
 💾 Save Product
 </button>
 
-<button class="action" style="width:100%;background:#777;color:white"
+<button
+class="cancel-form"
 onclick="cancelForm()">
 Cancel
 </button>
-</div>
+
 </div>
 
-<hr>
+
 <div id="adminProducts"></div>
 
-</section>
-
-<br>
-
-<button class="action logout"
-onclick="adminLogout()">
-🚪 Logout
-</button>
+</div>
 
 </div>
 </div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p><b>🛍️ TiTu Shop</b></p>
+
+<p>সবার জন্য সহজ Online Shopping</p>
+
+<p>© 2026 TiTu Shop</p>
+
+</footer>
 
 
 <script>
-/* =========================
+
+/* =================================================
    DEFAULT PRODUCTS
-========================= */
+================================================= */
 
 const defaultProducts=[
+
 {
 id:1,
 name:"Premium T-Shirt",
@@ -413,6 +1049,7 @@ image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&
 description:"আরামদায়ক Premium T-Shirt।",
 stock:true
 },
+
 {
 id:2,
 name:"Stylish Sneakers",
@@ -421,6 +1058,7 @@ image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit
 description:"স্টাইলিশ ও আরামদায়ক Sneakers।",
 stock:true
 },
+
 {
 id:3,
 name:"Elegant Watch",
@@ -429,6 +1067,7 @@ image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&
 description:"সুন্দর আধুনিক Wrist Watch।",
 stock:true
 },
+
 {
 id:4,
 name:"Stylish Backpack",
@@ -437,200 +1076,333 @@ image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit
 description:"দৈনন্দিন ব্যবহারের Backpack।",
 stock:true
 }
+
 ];
 
+
+/* =================================================
+   DATA
+================================================= */
+
 let products=
-JSON.parse(localStorage.getItem("tituProducts")) ||
-defaultProducts;
+JSON.parse(localStorage.getItem("tituProducts"))
+||defaultProducts;
 
 let orders=
-JSON.parse(localStorage.getItem("tituOrders")) || [];
+JSON.parse(localStorage.getItem("tituOrders"))
+||[];
 
 let cart=[];
-let selectedProduct=null;
+
 let editingId=null;
 
+let selectedProduct=null;
 
-/* =========================
-   SAVE
-========================= */
+
+/* =================================================
+   SAVE DATA
+================================================= */
 
 function saveProducts(){
-localStorage.setItem("tituProducts",JSON.stringify(products));
+
+localStorage.setItem(
+"tituProducts",
+JSON.stringify(products)
+);
+
 }
 
 function saveOrders(){
-localStorage.setItem("tituOrders",JSON.stringify(orders));
+
+localStorage.setItem(
+"tituOrders",
+JSON.stringify(orders)
+);
+
 }
 
 
-/* =========================
-   PRODUCTS
-========================= */
+/* =================================================
+   RENDER PRODUCTS
+================================================= */
 
 function renderProducts(){
 
-const grid=document.getElementById("productGrid");
+const grid=
+document.getElementById("productGrid");
+
 grid.innerHTML="";
 
+document.getElementById("productCount").innerText=
+products.length+"টি পণ্য";
+
 if(products.length===0){
-grid.innerHTML='<p class="empty">কোনো Product নেই।</p>';
+
+grid.innerHTML=
+'<p class="empty">এখন কোনো Product নেই।</p>';
+
 return;
+
 }
 
-products.forEach(p=>{
+products.forEach(product=>{
 
 grid.innerHTML+=`
-<div class="card" data-name="${escapeHtml(p.name).toLowerCase()}">
 
-<img src="${escapeHtml(p.image)}"
+<div class="product"
+data-name="${escapeHTML(product.name.toLowerCase())}">
+
+<img
+class="product-image"
+src="${escapeHTML(product.image)}"
+alt="${escapeHTML(product.name)}"
 onerror="this.src='https://via.placeholder.com/700x500?text=TiTu+Shop'">
 
-<div class="info">
+<div class="product-info">
 
-<h3>${escapeHtml(p.name)}</h3>
+<h3>${escapeHTML(product.name)}</h3>
 
-<p class="desc">${escapeHtml(p.description)}</p>
+<p class="description">
+${escapeHTML(product.description)}
+</p>
 
-<div class="price">৳ ${Number(p.price).toLocaleString()}</div>
-
-<div class="stock ${p.stock?'in':'out'}">
-${p.stock?'● Stock Available':'● Out of Stock'}
+<div class="price">
+৳ ${Number(product.price).toLocaleString("en-BD")}
 </div>
 
-<button class="btn details"
-onclick="showDetails(${p.id})">
+<div class="stock ${product.stock?"in":"out"}">
+
+${product.stock
+?"● Stock Available"
+:"● Out of Stock"}
+
+</div>
+
+<div class="product-buttons">
+
+<button
+class="details-btn"
+onclick="showDetails(${product.id})">
 👁️ Details
 </button>
 
-<button class="btn add"
-${p.stock?'':'disabled'}
-onclick="addToCart(${p.id})">
-${p.stock?'🛒 Cart-এ যোগ করুন':'Out of Stock'}
+<button
+class="add-btn"
+${product.stock?"":"disabled"}
+onclick="addToCartById(${product.id})">
+${product.stock
+?"🛒 Add"
+:"Out of Stock"}
 </button>
 
 </div>
-</div>`;
+
+</div>
+</div>
+
+`;
+
 });
+
 }
 
 
-/* নিরাপদ text */
-function escapeHtml(value){
-return String(value ?? "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+/* =================================================
+   HTML SAFETY
+================================================= */
+
+function escapeHTML(value){
+
+return String(value)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
 }
 
 
-/* DETAILS */
+/* =================================================
+   PRODUCT DETAILS
+================================================= */
 
 function showDetails(id){
 
-const p=products.find(x=>x.id===id);
-if(!p)return;
+const product=
+products.find(p=>p.id===id);
 
-selectedProduct=p;
+if(!product)return;
 
-document.getElementById("detailsName").innerText=p.name;
-document.getElementById("detailsPrice").innerText=
-Number(p.price).toLocaleString();
+selectedProduct=product;
 
-document.getElementById("detailsDescription").innerText=
-p.description;
+document.getElementById("detailsName")
+.innerText=product.name;
 
-document.getElementById("detailsImage").src=p.image;
+document.getElementById("detailsDescription")
+.innerText=product.description;
 
-document.getElementById("detailsModal").style.display="block";
+document.getElementById("detailsPrice")
+.innerText=product.price.toLocaleString("en-BD");
+
+document.getElementById("detailsImage")
+.src=product.image;
+
+const stock=
+document.getElementById("detailsStock");
+
+stock.innerText=
+product.stock
+?"🟢 Stock Available"
+:"🔴 Out of Stock";
+
+stock.style.color=
+product.stock?"#16a34a":"#dc2626";
+
+const btn=
+document.getElementById("detailsAddBtn");
+
+btn.disabled=!product.stock;
+
+btn.innerText=
+product.stock
+?"🛒 Cart-এ যোগ করুন"
+:"Out of Stock";
+
+document.getElementById("detailsModal")
+.style.display="block";
+
 }
+
 
 function closeDetails(){
-document.getElementById("detailsModal").style.display="none";
+
+document.getElementById("detailsModal")
+.style.display="none";
+
 }
+
 
 function addDetailsProduct(){
 
-if(selectedProduct && selectedProduct.stock){
-addToCart(selectedProduct.id);
+if(selectedProduct &&
+selectedProduct.stock){
+
+addToCartById(selectedProduct.id);
+
 closeDetails();
+
 }
+
 }
 
 
-/* =========================
+/* =================================================
    CART
-========================= */
+================================================= */
 
-function addToCart(id){
+function addToCartById(id){
 
-const p=products.find(x=>x.id===id);
+const product=
+products.find(p=>p.id===id);
 
-if(!p || !p.stock)return;
+if(!product || !product.stock)return;
 
-const existing=cart.find(x=>x.id===id);
+const existing=
+cart.find(item=>item.id===id);
 
 if(existing){
+
 existing.qty++;
+
 }else{
+
 cart.push({
-id:p.id,
-name:p.name,
-price:Number(p.price),
+
+id:product.id,
+name:product.name,
+price:Number(product.price),
 qty:1
+
 });
+
 }
 
 updateCart();
 
-alert(p.name+" Cart-এ যোগ হয়েছে ✅");
+alert(product.name+" Cart-এ যোগ হয়েছে ✅");
+
 }
+
 
 function updateCart(){
 
-const box=document.getElementById("cartItems");
+const box=
+document.getElementById("cartItems");
 
 box.innerHTML="";
 
 let count=0;
+
 let total=0;
 
 if(cart.length===0){
-box.innerHTML='<p class="empty">Cart এখন খালি 🛒</p>';
+
+box.innerHTML=
+'<p class="empty">Cart এখন খালি 🛒</p>';
+
 }
 
 cart.forEach((item,index)=>{
 
 count+=item.qty;
+
 total+=item.price*item.qty;
 
 box.innerHTML+=`
-<div class="cartItem">
 
-<strong>${escapeHtml(item.name)}</strong>
+<div class="cart-item">
 
-<p>৳ ${item.price.toLocaleString()}</p>
+<div class="cart-item-title">
+${escapeHTML(item.name)}
+</div>
+
+<p>৳ ${item.price.toLocaleString("en-BD")}</p>
 
 <div class="qty">
 
-<button onclick="changeQty(${index},-1)">−</button>
+<button onclick="changeQty(${index},-1)">
+−
+</button>
 
 <strong>${item.qty}</strong>
 
-<button onclick="changeQty(${index},1)">+</button>
+<button onclick="changeQty(${index},1)">
++
+</button>
 
-<button onclick="removeItem(${index})">❌</button>
+<button
+class="remove-btn"
+onclick="removeItem(${index})">
+❌
+</button>
 
 </div>
-</div>`;
+
+</div>
+
+`;
+
 });
 
-document.getElementById("cartCount").innerText=count;
-document.getElementById("total").innerText=
-total.toLocaleString();
+document.getElementById("cartCount")
+.innerText=count;
+
+document.getElementById("total")
+.innerText=total.toLocaleString("en-BD");
+
 }
+
 
 function changeQty(index,value){
 
@@ -639,111 +1411,167 @@ if(!cart[index])return;
 cart[index].qty+=value;
 
 if(cart[index].qty<=0){
+
 cart.splice(index,1);
+
 }
 
 updateCart();
+
 }
+
 
 function removeItem(index){
 
 cart.splice(index,1);
+
 updateCart();
+
 }
+
 
 function openCart(){
-document.getElementById("cart").classList.add("active");
+
+document.getElementById("cart")
+.classList.add("active");
+
 }
+
 
 function closeCart(){
-document.getElementById("cart").classList.remove("active");
+
+document.getElementById("cart")
+.classList.remove("active");
+
 }
 
 
-/* =========================
+/* =================================================
    SEARCH
-========================= */
+================================================= */
 
 function searchProducts(){
 
 const value=
 document.getElementById("searchInput")
-.value.toLowerCase();
+.value
+.trim()
+.toLowerCase();
 
-document.querySelectorAll(".card").forEach(card=>{
+document.querySelectorAll(".product")
+.forEach(product=>{
 
-card.style.display=
-card.dataset.name.includes(value)?"block":"none";
+const name=
+product.dataset.name;
+
+product.style.display=
+name.includes(value)
+?"block"
+:"none";
 
 });
+
 }
 
 
-/* =========================
-   ORDER
-========================= */
+/* =================================================
+   WHATSAPP ORDER
+================================================= */
 
 function placeOrder(){
 
 if(cart.length===0){
-alert("আগে Cart-এ পণ্য যোগ করুন 🛒");
+
+alert("আগে Cart-এ Product যোগ করুন 🛒");
+
 return;
+
 }
 
 const name=
-document.getElementById("customerName").value.trim();
+document.getElementById("customerName")
+.value.trim();
 
 const phone=
-document.getElementById("customerPhone").value.trim();
+document.getElementById("customerPhone")
+.value.trim();
 
 const address=
-document.getElementById("customerAddress").value.trim();
+document.getElementById("customerAddress")
+.value.trim();
+
 
 if(!name || !phone || !address){
-alert("নাম, মোবাইল ও ঠিকানা পূরণ করুন।");
+
+alert("নাম, মোবাইল ও সম্পূর্ণ ঠিকানা দিন।");
+
 return;
+
 }
 
+
 let total=0;
-let items=[];
+
+const items=[];
 
 cart.forEach(item=>{
 
-const subtotal=item.price*item.qty;
+const subtotal=
+item.price*item.qty;
+
 total+=subtotal;
 
 items.push({
+
 name:item.name,
 price:item.price,
 qty:item.qty,
 subtotal:subtotal
+
 });
+
 });
+
 
 const order={
+
 id:"TT"+Date.now(),
+
 date:new Date().toLocaleString("bn-BD"),
+
 customerName:name,
+
 customerPhone:phone,
+
 customerAddress:address,
+
 items:items,
+
 total:total,
+
 status:"Pending"
+
 };
 
+
 orders.push(order);
+
 saveOrders();
 
 
-/* WhatsApp */
-let message="🛍️ TiTu Shop Order\n\n";
+/* WhatsApp Message */
+
+let message=
+"🛍️ TiTu Shop Order\n\n";
 
 items.forEach(item=>{
+
 message+=
 "📦 "+item.name+
 " × "+item.qty+
 " = ৳ "+item.subtotal+
 "\n";
+
 });
 
 message+=
@@ -755,18 +1583,22 @@ message+=
 "\n\n🆔 Order ID: "+order.id;
 
 
-/* তোমার WhatsApp নম্বর */
-const whatsappNumber="8801970765919";
+/* TiTu Shop WhatsApp */
+
+const whatsappNumber=
+"8801970765919";
 
 const url=
 "https://wa.me/"+
 whatsappNumber+
-"?text="+encodeURIComponent(message);
+"?text="+
+encodeURIComponent(message);
 
 window.open(url,"_blank");
 
 
 cart=[];
+
 updateCart();
 
 document.getElementById("customerName").value="";
@@ -776,417 +1608,624 @@ document.getElementById("customerAddress").value="";
 closeCart();
 
 alert(
-"Order সফলভাবে তৈরি হয়েছে ✅\n\nOrder ID: "+order.id
+"Order সফলভাবে তৈরি হয়েছে ✅\nOrder ID: "+
+order.id
 );
+
 }
 
 
-/* =========================
+/* =================================================
    ADMIN LOGIN
-========================= */
+================================================= */
 
 function openAdminLogin(){
 
-if(localStorage.getItem("tituAdmin")==="yes"){
+const logged=
+localStorage.getItem("tituAdmin")==="yes";
+
+if(logged){
+
 openAdmin();
+
 }else{
-document.getElementById("loginModal").style.display="block";
-}
+
+document.getElementById("loginModal")
+.style.display="block";
+
 }
 
-function closeLogin(){
-document.getElementById("loginModal").style.display="none";
 }
+
+
+function closeLogin(){
+
+document.getElementById("loginModal")
+.style.display="none";
+
+}
+
 
 function adminLogin(){
 
 const username=
-document.getElementById("adminUsername").value.trim();
+document.getElementById("adminUsername")
+.value.trim();
 
 const password=
-document.getElementById("adminPassword").value;
+document.getElementById("adminPassword")
+.value;
+
 
 if(username==="admin" && password==="1234"){
 
 localStorage.setItem("tituAdmin","yes");
 
 closeLogin();
+
 openAdmin();
 
 }else{
 
-alert("Username অথবা Password ভুল।");
+alert("Username অথবা Password ভুল ❌");
+
 }
+
 }
+
 
 function adminLogout(){
 
 localStorage.removeItem("tituAdmin");
 
-closeAdmin();
+document.getElementById("adminModal")
+.style.display="none";
 
-alert("Logout হয়েছে।");
+alert("Logout হয়েছে ✅");
+
 }
 
 
-/* =========================
+/* =================================================
    ADMIN DASHBOARD
-========================= */
+================================================= */
 
 function openAdmin(){
 
-document.getElementById("adminPanel").style.display="block";
+document.getElementById("adminModal")
+.style.display="block";
 
 renderDashboard();
+
 }
 
-function closeAdmin(){
-
-document.getElementById("adminPanel").style.display="none";
-
-cancelForm();
-}
 
 function renderDashboard(){
 
-document.getElementById("statProducts").innerText=
-products.length;
+document.getElementById("statProducts")
+.innerText=products.length;
 
-document.getElementById("statOrders").innerText=
-orders.length;
+document.getElementById("statOrders")
+.innerText=orders.length;
 
 const pending=
-orders.filter(o=>o.status==="Pending").length;
+orders.filter(
+o=>o.status==="Pending"
+).length;
 
-document.getElementById("statPending").innerText=pending;
+document.getElementById("statPending")
+.innerText=pending;
+
 
 let sales=0;
 
-orders.forEach(o=>{
-if(o.status!=="Cancelled"){
-sales+=Number(o.total);
+orders.forEach(order=>{
+
+if(order.status!=="Cancelled"){
+
+sales+=Number(order.total);
+
 }
+
 });
 
-document.getElementById("statSales").innerText=
-sales.toLocaleString();
+document.getElementById("statSales")
+.innerText=
+sales.toLocaleString("en-BD");
 
 renderAdminOrders();
+
 renderAdminProducts();
+
 }
 
 
-/* TABS */
+/* =================================================
+   ADMIN TABS
+================================================= */
 
-function showSection(section,btn){
+function showAdminSection(section,button){
 
-document.getElementById("ordersSection").style.display=
-section==="orders"?"block":"none";
+document.getElementById("ordersSection")
+.style.display=
+section==="orders"
+?"block"
+:"none";
 
-document.getElementById("productsSection").style.display=
-section==="products"?"block":"none";
+document.getElementById("productsSection")
+.style.display=
+section==="products"
+?"block"
+:"none";
 
-document.querySelectorAll(".tab").forEach(x=>{
-x.classList.remove("active");
+document.querySelectorAll(".tab")
+.forEach(tab=>{
+tab.classList.remove("active");
 });
 
-btn.classList.add("active");
+button.classList.add("active");
+
 }
 
 
-/* =========================
+/* =================================================
    ADMIN ORDERS
-========================= */
+================================================= */
 
 function renderAdminOrders(){
 
-const box=document.getElementById("adminOrders");
+const box=
+document.getElementById("adminOrders");
 
 box.innerHTML="";
 
 if(orders.length===0){
 
 box.innerHTML=
-'<p class="empty">এখনো কোনো Order নেই।</p>';
+'<p class="empty">এখনো কোনো Order নেই 📦</p>';
 
 return;
+
 }
+
 
 [...orders].reverse().forEach(order=>{
 
 let items="";
 
 order.items.forEach(item=>{
+
 items+=`
+
 <p>
-📦 ${escapeHtml(item.name)}
+📦 ${escapeHTML(item.name)}
 × ${item.qty}
 = ৳ ${item.subtotal}
-</p>`;
+</p>
+
+`;
+
 });
 
+
 box.innerHTML+=`
-<div class="order">
 
-<h3>🆔 ${order.id}</h3>
+<div class="admin-card">
 
-<p>📅 ${escapeHtml(order.date)}</p>
+<h3>🆔 ${escapeHTML(order.id)}</h3>
 
-<hr>
+<p>📅 ${escapeHTML(order.date)}</p>
 
-<strong>👤 ${escapeHtml(order.customerName)}</strong>
+<hr style="margin:10px 0">
 
-<p>📱 ${escapeHtml(order.customerPhone)}</p>
+<strong>
+👤 ${escapeHTML(order.customerName)}
+</strong>
 
-<p>📍 ${escapeHtml(order.customerAddress)}</p>
+<p>
+📱 ${escapeHTML(order.customerPhone)}
+</p>
 
-<hr>
+<p>
+📍 ${escapeHTML(order.customerAddress)}
+</p>
+
+<hr style="margin:10px 0">
 
 ${items}
 
-<h3>💰 ৳ ${order.total}</h3>
+<h3 style="margin-top:10px">
+💰 ৳ ${order.total}
+</h3>
 
-<p><strong>Status:</strong> ${escapeHtml(order.status)}</p>
+<p style="margin-top:8px">
+Status:
+<span class="status">
+${escapeHTML(order.status)}
+</span>
+</p>
 
-<button class="action confirm"
-onclick="changeStatus('${order.id}','Confirmed')">
+<div class="admin-actions">
+
+<button
+class="confirm"
+onclick="changeOrderStatus('${order.id}','Confirmed')">
 ✅ Confirm
 </button>
 
-<button class="action confirm"
-onclick="changeStatus('${order.id}','Delivered')">
+<button
+class="delivered"
+onclick="changeOrderStatus('${order.id}','Delivered')">
 📦 Delivered
 </button>
 
-<button class="action cancel"
-onclick="changeStatus('${order.id}','Cancelled')">
+<button
+class="cancel"
+onclick="changeOrderStatus('${order.id}','Cancelled')">
 ❌ Cancel
 </button>
 
-<button class="action delete"
+<button
+class="delete"
 onclick="deleteOrder('${order.id}')">
 🗑️ Delete
 </button>
 
-</div>`;
+</div>
+
+</div>
+
+`;
+
 });
+
 }
 
-function changeStatus(id,status){
 
-const order=orders.find(x=>x.id===id);
+/* =================================================
+   ORDER STATUS
+================================================= */
+
+function changeOrderStatus(id,status){
+
+const order=
+orders.find(o=>o.id===id);
 
 if(!order)return;
 
 order.status=status;
 
 saveOrders();
+
 renderDashboard();
+
 }
+
 
 function deleteOrder(id){
 
 if(!confirm("এই Order Delete করতে চান?"))return;
 
-orders=orders.filter(x=>x.id!==id);
+orders=
+orders.filter(o=>o.id!==id);
 
 saveOrders();
+
 renderDashboard();
+
 }
 
 
-/* =========================
+/* =================================================
    ADMIN PRODUCTS
-========================= */
+================================================= */
 
 function renderAdminProducts(){
 
-const box=document.getElementById("adminProducts");
+const box=
+document.getElementById("adminProducts");
 
 box.innerHTML="";
 
 if(products.length===0){
-box.innerHTML='<p class="empty">কোনো Product নেই।</p>';
+
+box.innerHTML=
+'<p class="empty">কোনো Product নেই।</p>';
+
 return;
+
 }
 
-products.forEach(p=>{
+
+products.forEach(product=>{
 
 box.innerHTML+=`
-<div class="adminProduct">
 
-<img src="${escapeHtml(p.image)}">
+<div class="admin-card">
 
-<strong>${escapeHtml(p.name)}</strong>
+<img
+src="${escapeHTML(product.image)}"
+onerror="this.src='https://via.placeholder.com/100?text=TiTu'">
 
-<p>৳ ${p.price}</p>
+<strong>
+${escapeHTML(product.name)}
+</strong>
 
 <p>
-${p.stock?"🟢 Available":"🔴 Out of Stock"}
+৳ ${Number(product.price).toLocaleString("en-BD")}
 </p>
 
-<button class="action edit"
-onclick="editProduct(${p.id})">
+<p>
+${product.stock
+?"🟢 Available"
+:"🔴 Out of Stock"}
+</p>
+
+<div class="clear"></div>
+
+<div class="admin-actions">
+
+<button
+class="edit"
+onclick="editProduct(${product.id})">
 ✏️ Edit
 </button>
 
-<button class="action delete"
-onclick="deleteProduct(${p.id})">
+<button
+class="delete"
+onclick="deleteProduct(${product.id})">
 🗑️ Delete
 </button>
 
-</div>`;
+</div>
+
+</div>
+
+`;
+
 });
+
 }
 
 
-/* PRODUCT FORM */
+/* =================================================
+   PRODUCT FORM
+================================================= */
 
 function showProductForm(){
 
 editingId=null;
 
-document.getElementById("formTitle").innerText=
-"➕ নতুন Product";
+document.getElementById("formTitle")
+.innerText="➕ নতুন Product";
 
 clearForm();
 
-document.getElementById("productForm").style.display="block";
+document.getElementById("productForm")
+.style.display="block";
+
 }
+
 
 function clearForm(){
 
 document.getElementById("pName").value="";
+
 document.getElementById("pPrice").value="";
+
 document.getElementById("pImage").value="";
+
 document.getElementById("pDescription").value="";
+
 document.getElementById("pStock").value="yes";
+
 }
+
 
 function editProduct(id){
 
-const p=products.find(x=>x.id===id);
+const product=
+products.find(p=>p.id===id);
 
-if(!p)return;
+if(!product)return;
 
 editingId=id;
 
-document.getElementById("formTitle").innerText=
-"✏️ Product Edit";
+document.getElementById("formTitle")
+.innerText="✏️ Product Edit";
 
-document.getElementById("pName").value=p.name;
-document.getElementById("pPrice").value=p.price;
-document.getElementById("pImage").value=p.image;
-document.getElementById("pDescription").value=p.description;
+document.getElementById("pName").value=
+product.name;
+
+document.getElementById("pPrice").value=
+product.price;
+
+document.getElementById("pImage").value=
+product.image;
+
+document.getElementById("pDescription").value=
+product.description;
+
 document.getElementById("pStock").value=
-p.stock?"yes":"no";
+product.stock
+?"yes"
+:"no";
 
-document.getElementById("productForm").style.display="block";
+document.getElementById("productForm")
+.style.display="block";
+
 }
+
+
+/* =================================================
+   SAVE PRODUCT
+================================================= */
 
 function saveProduct(){
 
 const name=
-document.getElementById("pName").value.trim();
+document.getElementById("pName")
+.value.trim();
 
 const price=
-Number(document.getElementById("pPrice").value);
+Number(
+document.getElementById("pPrice").value
+);
 
 const image=
-document.getElementById("pImage").value.trim();
+document.getElementById("pImage")
+.value.trim();
 
 const description=
-document.getElementById("pDescription").value.trim();
+document.getElementById("pDescription")
+.value.trim();
 
 const stock=
-document.getElementById("pStock").value==="yes";
+document.getElementById("pStock")
+.value==="yes";
+
 
 if(!name || !price || !image){
 
-alert("Name, Price এবং Image দিন।");
+alert(
+"Product Name, Price এবং Image URL দিন।"
+);
+
 return;
+
 }
+
 
 if(editingId){
 
-const p=products.find(x=>x.id===editingId);
+const product=
+products.find(p=>p.id===editingId);
 
-if(p){
-p.name=name;
-p.price=price;
-p.image=image;
-p.description=description;
-p.stock=stock;
-}
+if(!product)return;
+
+product.name=name;
+product.price=price;
+product.image=image;
+product.description=description;
+product.stock=stock;
 
 alert("Product Update হয়েছে ✅");
 
 }else{
 
 products.push({
+
 id:Date.now(),
+
 name:name,
+
 price:price,
+
 image:image,
+
 description:description,
+
 stock:stock
+
 });
 
 alert("নতুন Product যোগ হয়েছে ✅");
+
 }
+
 
 saveProducts();
 
 renderProducts();
+
 renderDashboard();
+
 cancelForm();
+
 }
+
+
+/* =================================================
+   DELETE PRODUCT
+================================================= */
 
 function deleteProduct(id){
 
-const p=products.find(x=>x.id===id);
+const product=
+products.find(p=>p.id===id);
 
-if(!p)return;
+if(!product)return;
 
-if(!confirm(p.name+" Delete করতে চান?"))return;
+if(!confirm(
+product.name+
+" Delete করতে চান?"
+))return;
 
-products=products.filter(x=>x.id!==id);
+products=
+products.filter(p=>p.id!==id);
 
 saveProducts();
 
 renderProducts();
+
 renderDashboard();
+
 }
+
+
+/* =================================================
+   CANCEL FORM
+================================================= */
 
 function cancelForm(){
 
 editingId=null;
 
-const form=document.getElementById("productForm");
-
-if(form)form.style.display="none";
+document.getElementById("productForm")
+.style.display="none";
 
 clearForm();
+
 }
 
 
-/* =========================
+/* =================================================
+   CLOSE MODALS WHEN CLICKING OUTSIDE
+================================================= */
+
+window.addEventListener("click",function(e){
+
+if(e.target===document.getElementById("detailsModal")){
+
+closeDetails();
+
+}
+
+if(e.target===document.getElementById("loginModal")){
+
+closeLogin();
+
+}
+
+if(e.target===document.getElementById("adminModal")){
+
+document.getElementById("adminModal")
+.style.display="none";
+
+}
+
+});
+
+
+/* =================================================
    START
-========================= */
+================================================= */
 
 renderProducts();
+
 updateCart();
 
-
-/* ESC চাপলে modal বন্ধ */
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-closeDetails();
-closeLogin();
-}
-});
 </script>
 
 </body>
-  </html>
+</html>
