@@ -22,10 +22,7 @@ body{
   color:#172033;
 }
 
-button,
-input,
-textarea,
-select{
+button,input,textarea,select{
   font:inherit;
 }
 
@@ -34,7 +31,7 @@ button{
   border:0;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
   background:linear-gradient(135deg,#2563eb,#4f46e5);
@@ -77,7 +74,7 @@ header{
   font-size:18px;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   max-width:1150px;
@@ -128,7 +125,7 @@ header{
   border-radius:11px;
 }
 
-/* ================= CONTAINER ================= */
+/* CONTAINER */
 
 .container{
   max-width:1150px;
@@ -147,7 +144,7 @@ header{
   font-size:25px;
 }
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .products{
   display:grid;
@@ -241,7 +238,7 @@ header{
   color:#777;
 }
 
-/* ================= ADMIN ================= */
+/* ADMIN */
 
 .admin-panel{
   display:none;
@@ -298,7 +295,7 @@ header{
   margin-bottom:20px;
 }
 
-/* ================= FORM ================= */
+/* FORM */
 
 .form-box{
   display:none;
@@ -342,7 +339,7 @@ header{
   resize:vertical;
 }
 
-/* ================= IMAGE UPLOAD ================= */
+/* IMAGE */
 
 .upload-area{
   border:2px dashed #2563eb;
@@ -405,9 +402,10 @@ header{
   color:white;
   padding:13px;
   border-radius:12px;
+  font-weight:bold;
 }
 
-/* ================= ADMIN PRODUCTS ================= */
+/* ADMIN PRODUCTS */
 
 .admin-product{
   display:flex;
@@ -453,7 +451,7 @@ header{
   border-radius:8px;
 }
 
-/* ================= MODAL ================= */
+/* MODAL */
 
 .modal{
   display:none;
@@ -514,7 +512,7 @@ header{
   font-weight:bold;
 }
 
-/* ================= CART ================= */
+/* CART */
 
 .cart-item{
   display:flex;
@@ -556,7 +554,7 @@ header{
   text-align:right;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   background:#111827;
@@ -565,7 +563,7 @@ footer{
   padding:30px 15px;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:850px){
 
@@ -636,7 +634,7 @@ footer{
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -669,15 +667,13 @@ footer{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
   <div class="hero-box">
 
-    <h1>
-      🛍️ Welcome to TiTu Shop
-    </h1>
+    <h1>🛍️ Welcome to TiTu Shop</h1>
 
     <p>
       আপনার পছন্দের পণ্য এখন এক জায়গায়
@@ -692,9 +688,7 @@ footer{
         oninput="renderProducts()"
       >
 
-      <button
-        onclick="renderProducts()"
-      >
+      <button onclick="renderProducts()">
         🔍
       </button>
 
@@ -705,15 +699,13 @@ footer{
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
+<!-- PRODUCTS -->
 
 <main class="container">
 
   <div class="section-title">
 
-    <h2>
-      🔥 আমাদের Products
-    </h2>
+    <h2>🔥 আমাদের Products</h2>
 
   </div>
 
@@ -725,7 +717,7 @@ footer{
 </main>
 
 
-<!-- ================= ADMIN PANEL ================= -->
+<!-- ADMIN PANEL -->
 
 <section
   id="adminPanel"
@@ -734,9 +726,7 @@ footer{
 
   <div class="admin-head">
 
-    <h2>
-      ⚙️ Admin Panel
-    </h2>
+    <h2>⚙️ Admin Panel</h2>
 
     <button
       onclick="logoutAdmin()"
@@ -748,44 +738,25 @@ footer{
   </div>
 
 
-  <!-- STATS -->
-
   <div class="admin-stats">
 
     <div class="stat">
-
       Products
-
-      <b id="totalProducts">
-        0
-      </b>
-
+      <b id="totalProducts">0</b>
     </div>
 
     <div class="stat">
-
       Stock
-
-      <b id="stockProducts">
-        0
-      </b>
-
+      <b id="stockProducts">0</b>
     </div>
 
     <div class="stat">
-
       Cart Items
-
-      <b id="totalCart">
-        0
-      </b>
-
+      <b id="totalCart">0</b>
     </div>
 
   </div>
 
-
-  <!-- ADD PRODUCT -->
 
   <button
     class="add-btn"
@@ -795,7 +766,7 @@ footer{
   </button>
 
 
-  <!-- PRODUCT FORM -->
+  <!-- FORM -->
 
   <div
     id="formBox"
@@ -812,13 +783,9 @@ footer{
     >
 
 
-    <!-- NAME -->
-
     <div class="field">
 
-      <label>
-        Product Name
-      </label>
+      <label>Product Name</label>
 
       <input
         id="productName"
@@ -829,13 +796,9 @@ footer{
     </div>
 
 
-    <!-- PRICE -->
-
     <div class="field">
 
-      <label>
-        Price (৳)
-      </label>
+      <label>Price (৳)</label>
 
       <input
         id="productPrice"
@@ -847,13 +810,9 @@ footer{
     </div>
 
 
-    <!-- GALLERY UPLOAD -->
-
     <div class="field">
 
-      <label>
-        🖼️ Product Image
-      </label>
+      <label>🖼️ Product Image</label>
 
       <div class="upload-area">
 
@@ -886,13 +845,9 @@ footer{
     </div>
 
 
-    <!-- DESCRIPTION -->
-
     <div class="field">
 
-      <label>
-        Product Description
-      </label>
+      <label>Product Description</label>
 
       <textarea
         id="productDescription"
@@ -902,13 +857,9 @@ footer{
     </div>
 
 
-    <!-- STOCK -->
-
     <div class="field">
 
-      <label>
-        Stock Status
-      </label>
+      <label>Stock Status</label>
 
       <select id="productStock">
 
@@ -924,8 +875,6 @@ footer{
 
     </div>
 
-
-    <!-- BUTTONS -->
 
     <div class="form-buttons">
 
@@ -948,8 +897,6 @@ footer{
   </div>
 
 
-  <!-- ADMIN PRODUCT LIST -->
-
   <h3 style="margin-bottom:15px;">
     📦 Product Management
   </h3>
@@ -959,13 +906,11 @@ footer{
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
-  <h3>
-    TiTu Shop
-  </h3>
+  <h3>TiTu Shop</h3>
 
   <p style="margin-top:8px;">
     Online Shopping Made Easy 🛍️
@@ -978,7 +923,7 @@ footer{
 </footer>
 
 
-<!-- ================= PRODUCT MODAL ================= -->
+<!-- PRODUCT MODAL -->
 
 <div
   id="productModal"
@@ -1043,7 +988,7 @@ footer{
 </div>
 
 
-<!-- ================= CART MODAL ================= -->
+<!-- CART MODAL -->
 
 <div
   id="cartModal"
@@ -1054,9 +999,7 @@ footer{
 
     <div class="modal-head">
 
-      <h2>
-        🛒 Your Cart
-      </h2>
+      <h2>🛒 Your Cart</h2>
 
       <button
         class="close"
@@ -1073,9 +1016,7 @@ footer{
 
     <div class="total">
 
-      Total: ৳<span id="cartTotal">
-        0
-      </span>
+      Total: ৳<span id="cartTotal">0</span>
 
     </div>
 
@@ -1092,7 +1033,7 @@ footer{
 </div>
 
 
-<!-- ================= LOGIN MODAL ================= -->
+<!-- FIREBASE LOGIN MODAL -->
 
 <div
   id="loginModal"
@@ -1103,9 +1044,7 @@ footer{
 
     <div class="modal-head">
 
-      <h2>
-        🔐 Admin Login
-      </h2>
+      <h2>🔐 Admin Login</h2>
 
       <button
         class="close"
@@ -1119,14 +1058,27 @@ footer{
 
     <div class="field">
 
-      <label>
-        Admin Password
-      </label>
+      <label>Admin Email</label>
+
+      <input
+        id="adminEmail"
+        type="email"
+        placeholder="Admin Email লিখুন"
+        autocomplete="email"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>Admin Password</label>
 
       <input
         id="adminPassword"
         type="password"
         placeholder="Password লিখুন"
+        autocomplete="current-password"
       >
 
     </div>
@@ -1136,14 +1088,14 @@ footer{
       class="login-btn"
       onclick="checkAdminLogin()"
     >
-      Login
+      🔐 Login
     </button>
 
 
     <p
-      style="margin-top:12px;color:#777;font-size:13px;"
+      style="margin-top:12px;color:#777;font-size:13px;text-align:center;"
     >
-      Default password: <b>123456</b>
+      Firebase Secure Admin Login
     </p>
 
   </div>
@@ -1159,7 +1111,124 @@ footer{
 
 const WHATSAPP_NUMBER = "8801970765919";
 
-const ADMIN_PASSWORD = "123456";
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyCpOPd8yVsPkaPWzdFBFeE-EPrg1EXsvmY",
+
+  authDomain:
+    "titu-shop.firebaseapp.com",
+
+  projectId:
+    "titu-shop",
+
+  storageBucket:
+    "titu-shop.firebasestorage.app",
+
+  messagingSenderId:
+    "14918318168",
+
+  appId:
+    "1:14918318168:web:18a090ee0aac2c6832722d"
+
+};
+
+
+/* =====================================================
+   FIREBASE VARIABLES
+===================================================== */
+
+let firebaseAuth = null;
+
+let firebaseSignIn = null;
+
+let firebaseSignOut = null;
+
+
+/* =====================================================
+   LOAD FIREBASE
+===================================================== */
+
+const firebaseReady = (async function(){
+
+  try{
+
+    const firebaseApp =
+      await import(
+        "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js"
+      );
+
+
+    const firebaseAuthModule =
+      await import(
+        "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js"
+      );
+
+
+    const app =
+      firebaseApp.initializeApp(
+        firebaseConfig
+      );
+
+
+    firebaseAuth =
+      firebaseAuthModule.getAuth(app);
+
+
+    firebaseSignIn =
+      firebaseAuthModule.signInWithEmailAndPassword;
+
+
+    firebaseSignOut =
+      firebaseAuthModule.signOut;
+
+
+    firebaseAuthModule.onAuthStateChanged(
+      firebaseAuth,
+      function(user){
+
+        if(user){
+
+          console.log(
+            "Firebase Admin Login:",
+            user.email
+          );
+
+          showAdmin();
+
+        }else{
+
+          document
+            .getElementById("adminPanel")
+            .classList
+            .remove("show");
+
+        }
+
+      }
+    );
+
+
+    console.log(
+      "Firebase initialized successfully."
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Firebase Error:",
+      error
+    );
+
+  }
+
+})();
 
 
 /* =====================================================
@@ -1175,8 +1244,10 @@ let products =
       id:1,
       name:"Wireless Earbuds",
       price:850,
-      image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800",
-      description:"High quality wireless earbuds.",
+      image:
+        "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800",
+      description:
+        "High quality wireless earbuds.",
       stock:true
     },
 
@@ -1184,8 +1255,10 @@ let products =
       id:2,
       name:"Smart Watch",
       price:1250,
-      image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
-      description:"Stylish smart watch for everyday use.",
+      image:
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+      description:
+        "Stylish smart watch for everyday use.",
       stock:true
     },
 
@@ -1193,8 +1266,10 @@ let products =
       id:3,
       name:"Premium Sunglasses",
       price:650,
-      image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",
-      description:"Premium stylish sunglasses.",
+      image:
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",
+      description:
+        "Premium stylish sunglasses.",
       stock:true
     },
 
@@ -1202,8 +1277,10 @@ let products =
       id:4,
       name:"Mini Bluetooth Speaker",
       price:750,
-      image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800",
-      description:"Portable Bluetooth speaker.",
+      image:
+        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800",
+      description:
+        "Portable Bluetooth speaker.",
       stock:true
     }
 
@@ -1935,16 +2012,26 @@ Subtotal: ৳${subtotal}
 
 
 /* =====================================================
-   ADMIN LOGIN
+   FIREBASE ADMIN LOGIN
 ===================================================== */
 
-function adminLogin(){
+async function adminLogin(){
 
-  if(
-    sessionStorage.getItem(
-      "titu_admin"
-    ) === "yes"
-  ){
+  await firebaseReady;
+
+
+  if(!firebaseAuth){
+
+    alert(
+      "❌ Firebase চালু হয়নি। Internet connection চেক করুন।"
+    );
+
+    return;
+
+  }
+
+
+  if(firebaseAuth.currentUser){
 
     showAdmin();
 
@@ -1965,23 +2052,72 @@ function adminLogin(){
    CHECK ADMIN LOGIN
 ===================================================== */
 
-function checkAdminLogin(){
+async function checkAdminLogin(){
+
+  const email =
+    document
+      .getElementById("adminEmail")
+      .value
+      .trim();
+
 
   const password =
-    document.getElementById(
-      "adminPassword"
-    ).value;
+    document
+      .getElementById("adminPassword")
+      .value;
 
 
-  if(
-    password ===
-    ADMIN_PASSWORD
-  ){
+  if(!email){
 
-    sessionStorage.setItem(
-      "titu_admin",
-      "yes"
+    alert(
+      "❌ Admin Email দিন।"
     );
+
+    return;
+
+  }
+
+
+  if(!password){
+
+    alert(
+      "❌ Password দিন।"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await firebaseReady;
+
+
+    if(
+      !firebaseAuth ||
+      !firebaseSignIn
+    ){
+
+      alert(
+        "❌ Firebase চালু হয়নি।"
+      );
+
+      return;
+
+    }
+
+
+    await firebaseSignIn(
+      firebaseAuth,
+      email,
+      password
+    );
+
+
+    document.getElementById(
+      "adminEmail"
+    ).value = "";
 
 
     document.getElementById(
@@ -1991,13 +2127,48 @@ function checkAdminLogin(){
 
     closeLogin();
 
-    showAdmin();
-
-  }else{
 
     alert(
-      "❌ ভুল Password!"
+      "✅ Admin Login সফল হয়েছে!"
     );
+
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+
+    if(
+      error.code ===
+      "auth/invalid-email"
+    ){
+
+      alert(
+        "❌ সঠিক Email দিন।"
+      );
+
+    }
+
+    else if(
+      error.code ===
+      "auth/too-many-requests"
+    ){
+
+      alert(
+        "⚠️ অনেকবার চেষ্টা করা হয়েছে। কিছুক্ষণ পরে আবার চেষ্টা করুন।"
+      );
+
+    }
+
+    else{
+
+      alert(
+        "❌ Email অথবা Password ভুল।"
+      );
+
+    }
 
   }
 
@@ -2045,20 +2216,45 @@ function showAdmin(){
 
 
 /* =====================================================
-   LOGOUT
+   FIREBASE LOGOUT
 ===================================================== */
 
-function logoutAdmin(){
+async function logoutAdmin(){
 
-  sessionStorage.removeItem(
-    "titu_admin"
-  );
+  try{
+
+    await firebaseReady;
 
 
-  document
-    .getElementById("adminPanel")
-    .classList
-    .remove("show");
+    if(
+      firebaseAuth &&
+      firebaseSignOut
+    ){
+
+      await firebaseSignOut(
+        firebaseAuth
+      );
+
+    }
+
+
+    document
+      .getElementById("adminPanel")
+      .classList
+      .remove("show");
+
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+    alert(
+      "❌ Logout করা যায়নি।"
+    );
+
+  }
 
 }
 
@@ -2169,9 +2365,7 @@ function handleImageUpload(event){
 
 
   if(
-    !file.type.startsWith(
-      "image/"
-    )
+    !file.type.startsWith("image/")
   ){
 
     alert(
@@ -2184,11 +2378,6 @@ function handleImageUpload(event){
 
   }
 
-
-  /*
-    5MB পর্যন্ত ছবি নেওয়া হবে।
-    তারপর Canvas দিয়ে ছোট করা হবে।
-  */
 
   if(
     file.size >
@@ -2220,12 +2409,9 @@ function handleImageUpload(event){
       img.onload =
         function(){
 
-          /*
-            Image maximum width
-            1000px করা হচ্ছে।
-          */
+          const MAX_WIDTH =
+            1000;
 
-          const MAX_WIDTH = 1000;
 
           let width =
             img.width;
@@ -2276,10 +2462,6 @@ function handleImageUpload(event){
             height
           );
 
-
-          /*
-            JPEG quality 0.80
-          */
 
           const compressedImage =
             canvas.toDataURL(
@@ -2374,8 +2556,6 @@ function saveProduct(){
     "";
 
 
-  /* NAME */
-
   if(!name){
 
     alert(
@@ -2386,8 +2566,6 @@ function saveProduct(){
 
   }
 
-
-  /* PRICE */
 
   if(
     !price ||
@@ -2403,8 +2581,6 @@ function saveProduct(){
   }
 
 
-  /* IMAGE */
-
   if(!image){
 
     alert(
@@ -2416,15 +2592,14 @@ function saveProduct(){
   }
 
 
-  /* ================= EDIT ================= */
+  /* EDIT */
 
   if(editId){
 
     const index =
       products.findIndex(
         p =>
-          p.id ==
-          editId
+          p.id == editId
       );
 
 
@@ -2456,7 +2631,7 @@ function saveProduct(){
   }
 
 
-  /* ================= ADD ================= */
+  /* ADD */
 
   else{
 
@@ -2811,18 +2986,7 @@ renderProducts();
 
 updateCartCount();
 
-
-if(
-  sessionStorage.getItem(
-    "titu_admin"
-  ) === "yes"
-){
-
-  showAdmin();
-
-}
-
 </script>
 
 </body>
-        </html>
+</html>
