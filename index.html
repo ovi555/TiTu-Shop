@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TiTu Shop - Online Shopping">
+<meta name="theme-color" content="#2563eb">
+
 <title>TiTu Shop</title>
 
 <style>
@@ -16,22 +17,31 @@
 
 body{
   background:#f4f7fb;
-  color:#222;
+  color:#172033;
+}
+
+button,input,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+  border:0;
 }
 
 header{
-  background:linear-gradient(135deg,#111827,#2563eb);
+  background:linear-gradient(135deg,#2563eb,#4f46e5);
   color:white;
-  padding:18px 5%;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 3px 15px #0002;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
-.nav{
-  max-width:1200px;
+.header-inner{
+  max-width:1150px;
   margin:auto;
+  padding:15px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -40,398 +50,526 @@ header{
 
 .logo{
   font-size:27px;
-  font-weight:bold;
+  font-weight:800;
 }
 
 .logo span{
-  color:#facc15;
+  color:#ffd43b;
 }
 
-.nav-right{
+.header-actions{
   display:flex;
   gap:8px;
-  align-items:center;
 }
 
-.nav button{
-  border:0;
-  background:white;
-  color:#1d4ed8;
-  padding:10px 15px;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
+.icon-btn{
+  background:rgba(255,255,255,.18);
+  color:white;
+  padding:10px 13px;
+  border-radius:12px;
+  font-size:18px;
 }
 
 .hero{
-  background:linear-gradient(135deg,#dbeafe,#eff6ff);
-  padding:55px 20px;
+  max-width:1150px;
+  margin:20px auto;
+  padding:30px 20px;
+}
+
+.hero-box{
+  background:linear-gradient(135deg,#111827,#1e3a8a);
+  color:white;
+  border-radius:25px;
+  padding:35px 25px;
   text-align:center;
+  box-shadow:0 10px 30px rgba(37,99,235,.2);
 }
 
 .hero h1{
-  font-size:38px;
-  color:#111827;
-  margin-bottom:12px;
+  font-size:34px;
+  margin-bottom:10px;
 }
 
 .hero p{
-  font-size:18px;
-  color:#475569;
-  margin-bottom:22px;
+  font-size:17px;
+  opacity:.9;
 }
 
-.search{
-  max-width:600px;
-  margin:auto;
+.search-box{
+  max-width:700px;
+  margin:20px auto 0;
   display:flex;
+  background:white;
+  padding:5px;
+  border-radius:15px;
 }
 
-.search input{
+.search-box input{
   width:100%;
-  padding:15px;
-  border:2px solid #dbeafe;
-  border-radius:12px 0 0 12px;
-  outline:none;
+  border:0;
+  outline:0;
+  padding:13px;
   font-size:16px;
 }
 
-.search button{
-  padding:15px 20px;
-  border:0;
+.search-box button{
   background:#2563eb;
   color:white;
-  border-radius:0 12px 12px 0;
-  cursor:pointer;
+  padding:0 18px;
+  border-radius:11px;
 }
 
 .container{
-  max-width:1200px;
-  margin:35px auto;
-  padding:0 18px;
+  max-width:1150px;
+  margin:auto;
+  padding:10px 18px 50px;
 }
 
 .section-title{
-  text-align:center;
-  font-size:28px;
-  margin-bottom:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:20px 0;
+}
+
+.section-title h2{
+  font-size:25px;
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-.card{
+.product{
   background:white;
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 5px 20px #00000012;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
   transition:.25s;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 25px #00000020;
+.product:hover{
+  transform:translateY(-4px);
 }
 
 .product-img{
   width:100%;
-  height:220px;
+  height:210px;
   object-fit:cover;
   background:#eee;
 }
 
-.card-body{
-  padding:17px;
+.product-info{
+  padding:15px;
 }
 
-.card h3{
+.product-name{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.product-desc{
+  color:#6b7280;
+  font-size:14px;
+  min-height:40px;
   margin-bottom:8px;
-  font-size:19px;
 }
 
 .price{
-  color:#16a34a;
+  color:#2563eb;
   font-size:21px;
-  font-weight:bold;
-  margin:10px 0;
+  font-weight:800;
+  margin:8px 0;
 }
 
-.desc{
-  color:#64748b;
-  font-size:14px;
-  min-height:38px;
+.stock{
+  font-size:13px;
+  margin-bottom:10px;
 }
 
-.actions{
+.available{
+  color:#16a34a;
+}
+
+.unavailable{
+  color:#dc2626;
+}
+
+.product-buttons{
   display:flex;
-  gap:8px;
-  margin-top:15px;
+  gap:7px;
 }
 
-.btn{
-  border:0;
-  padding:11px;
-  border-radius:9px;
-  cursor:pointer;
-  font-weight:bold;
+.buy-btn{
   flex:1;
-}
-
-.whatsapp{
-  background:#22c55e;
+  background:#16a34a;
   color:white;
+  padding:11px 5px;
+  border-radius:10px;
+  font-weight:bold;
 }
 
 .cart-btn{
   background:#2563eb;
   color:white;
+  padding:11px 13px;
+  border-radius:10px;
 }
 
-.admin-btn{
-  background:#111827 !important;
-  color:white !important;
+.empty{
+  grid-column:1/-1;
+  background:white;
+  border-radius:18px;
+  padding:50px 20px;
+  text-align:center;
+  color:#777;
 }
 
 .admin-panel{
   display:none;
   background:white;
-  max-width:900px;
+  max-width:1100px;
   margin:25px auto;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 5px 25px #0002;
+  padding:20px;
+  border-radius:22px;
+  box-shadow:0 5px 25px rgba(0,0,0,.1);
 }
 
-.admin-panel h2{
+.admin-panel.show{
+  display:block;
+}
+
+.admin-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:20px;
 }
 
-.form-grid{
+.admin-head h2{
+  font-size:25px;
+}
+
+.admin-stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:12px;
+  margin-bottom:20px;
 }
 
-.form-group{
-  margin-bottom:12px;
+.stat{
+  padding:18px;
+  border-radius:15px;
+  background:#eef4ff;
 }
 
-.form-group.full{
-  grid-column:1/-1;
-}
-
-.form-group label{
+.stat b{
   display:block;
-  margin-bottom:5px;
+  font-size:25px;
+  margin-top:5px;
+}
+
+.add-btn{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  background:#16a34a;
+  color:white;
+  font-weight:bold;
+  font-size:17px;
+  margin-bottom:20px;
+}
+
+.form-box{
+  display:none;
+  background:#f8fafc;
+  padding:18px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+
+.form-box.show{
+  display:block;
+}
+
+.form-box h3{
+  margin-bottom:15px;
+}
+
+.field{
+  margin-bottom:13px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:6px;
   font-weight:bold;
 }
 
-.form-group input,
-.form-group textarea{
+.field input,
+.field textarea,
+.field select{
   width:100%;
-  padding:12px;
-  border:1px solid #cbd5e1;
-  border-radius:9px;
-  outline:none;
+  padding:13px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  outline:0;
+  background:white;
 }
 
-.form-group textarea{
+.field textarea{
   min-height:90px;
   resize:vertical;
 }
 
-.admin-actions{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
+.upload-area{
+  border:2px dashed #93c5fd;
+  background:#eff6ff;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
 }
 
-.admin-actions button{
+.upload-area input{
   border:0;
-  padding:12px 18px;
-  border-radius:9px;
-  cursor:pointer;
+  padding:0;
+  background:transparent;
+}
+
+.image-preview{
+  display:none;
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+  margin:12px auto 0;
+}
+
+.form-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.save-btn{
+  flex:1;
+  background:#2563eb;
+  color:white;
+  padding:13px;
+  border-radius:12px;
   font-weight:bold;
 }
 
-.save{
-  background:#16a34a;
+.cancel-btn{
+  flex:1;
+  background:#6b7280;
   color:white;
+  padding:13px;
+  border-radius:12px;
 }
 
-.cancel{
-  background:#64748b;
-  color:white;
-}
-
-.admin-products{
-  margin-top:30px;
-}
-
-.admin-item{
+.admin-product{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:10px;
+  gap:12px;
   padding:12px;
-  border:1px solid #e2e8f0;
-  border-radius:10px;
+  background:#f8fafc;
+  border-radius:14px;
   margin-bottom:10px;
 }
 
-.admin-item-info{
+.admin-product img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.admin-product-info{
   flex:1;
 }
 
-.edit{
+.admin-product-info b{
+  display:block;
+}
+
+.admin-actions{
+  display:flex;
+  gap:6px;
+}
+
+.edit-btn{
   background:#f59e0b;
   color:white;
-  border:0;
-  padding:8px 12px;
-  border-radius:7px;
-  cursor:pointer;
+  padding:8px 11px;
+  border-radius:8px;
 }
 
-.delete{
+.delete-btn{
   background:#dc2626;
   color:white;
-  border:0;
-  padding:8px 12px;
-  border-radius:7px;
-  cursor:pointer;
-}
-
-.empty{
-  text-align:center;
-  padding:40px;
-  color:#64748b;
-}
-
-footer{
-  margin-top:50px;
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:30px 15px;
+  padding:8px 11px;
+  border-radius:8px;
 }
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:#0008;
-  z-index:3000;
+  background:rgba(0,0,0,.6);
+  z-index:2000;
   align-items:center;
   justify-content:center;
   padding:15px;
 }
 
+.modal.show{
+  display:flex;
+}
+
 .modal-box{
+  width:100%;
+  max-width:480px;
   background:white;
-  width:100%;
-  max-width:450px;
-  padding:25px;
-  border-radius:18px;
+  border-radius:20px;
+  padding:22px;
+  max-height:90vh;
+  overflow:auto;
 }
 
-.modal-box h2{
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:15px;
-}
-
-.modal-box input{
-  width:100%;
-  padding:13px;
-  border:1px solid #cbd5e1;
-  border-radius:9px;
-  margin:10px 0;
-}
-
-.modal-box button{
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:9px;
-  background:#2563eb;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
 }
 
 .close{
-  background:#64748b !important;
-  margin-top:8px;
+  background:#eee;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  font-size:20px;
 }
 
-.cart{
-  display:none;
-  position:fixed;
-  right:15px;
-  top:80px;
-  width:350px;
-  max-width:calc(100% - 30px);
-  background:white;
-  z-index:2000;
-  border-radius:18px;
-  box-shadow:0 10px 35px #0004;
-  padding:20px;
+.whatsapp{
+  width:100%;
+  background:#25D366;
+  color:white;
+  padding:14px;
+  border-radius:12px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
-.cart h2{
-  margin-bottom:15px;
+.login-btn{
+  width:100%;
+  background:#2563eb;
+  color:white;
+  padding:13px;
+  border-radius:12px;
+  font-weight:bold;
 }
 
 .cart-item{
   display:flex;
-  justify-content:space-between;
   gap:10px;
-  padding:10px 0;
+  align-items:center;
   border-bottom:1px solid #eee;
+  padding:10px 0;
 }
 
-.cart-total{
-  font-size:20px;
+.cart-item img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.qty{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  margin-top:5px;
+}
+
+.qty button{
+  width:28px;
+  height:28px;
+  border-radius:7px;
+  background:#e5e7eb;
+}
+
+.total{
+  font-size:21px;
   font-weight:bold;
-  margin:15px 0;
+  margin-top:15px;
+  text-align:right;
 }
 
-.checkout{
-  width:100%;
-  padding:13px;
-  background:#22c55e;
+footer{
+  background:#111827;
   color:white;
-  border:0;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
+  text-align:center;
+  padding:30px 15px;
 }
 
-@media(max-width:600px){
-  .hero h1{
-    font-size:29px;
+@media(max-width:850px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:520px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
   }
 
-  .form-grid{
+  .product-img{
+    height:160px;
+  }
+
+  .product-info{
+    padding:10px;
+  }
+
+  .product-name{
+    font-size:16px;
+  }
+
+  .price{
+    font-size:18px;
+  }
+
+  .hero{
+    padding:15px;
+  }
+
+  .hero-box{
+    padding:25px 15px;
+  }
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .admin-stats{
     grid-template-columns:1fr;
   }
 
-  .form-group.full{
-    grid-column:auto;
+  .admin-product{
+    align-items:flex-start;
   }
 
-  .logo{
-    font-size:22px;
-  }
-
-  .nav button{
-    padding:8px 10px;
-    font-size:12px;
-  }
-
-  .admin-item{
-    flex-wrap:wrap;
+  .admin-actions{
+    flex-direction:column;
   }
 }
 </style>
@@ -440,277 +578,511 @@ footer{
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">Ti<span>Tu</span> Shop</div>
+  <div class="header-inner">
+    <div class="logo">TiTu <span>Shop</span></div>
 
-    <div class="nav-right">
-      <button onclick="toggleCart()">🛒 Cart <span id="cartCount">0</span></button>
-      <button class="admin-btn" onclick="openAdmin()">⚙️ Admin</button>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="openCart()">
+        🛒 <span id="cartCount">0</span>
+      </button>
+
+      <button class="icon-btn" onclick="adminLogin()">
+        🔐
+      </button>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <h1>🛍️ Welcome to TiTu Shop</h1>
-  <p>আপনার পছন্দের পণ্য এখন এক জায়গায়</p>
+  <div class="hero-box">
+    <h1>🛍️ Welcome to TiTu Shop</h1>
+    <p>আপনার পছন্দের পণ্য এখন এক জায়গায়</p>
 
-  <div class="search">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="পণ্য খুঁজুন..."
-      oninput="showProducts()"
-    >
-    <button onclick="showProducts()">🔍</button>
+    <div class="search-box">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="পণ্য খুঁজুন..."
+        oninput="renderProducts()"
+      >
+      <button onclick="renderProducts()">🔍</button>
+    </div>
   </div>
 </section>
 
-<section class="container">
+<main class="container">
 
-  <h2 class="section-title">🔥 Our Products</h2>
+  <div class="section-title">
+    <h2>🔥 আমাদের Products</h2>
+  </div>
 
   <div id="products" class="products"></div>
 
-</section>
+</main>
 
-<!-- ADMIN PANEL -->
-
+<!-- ADMIN -->
 <section id="adminPanel" class="admin-panel">
 
-  <h2>⚙️ TiTu Shop Admin Panel</h2>
+  <div class="admin-head">
+    <h2>⚙️ Admin Panel</h2>
 
-  <div class="form-grid">
+    <button
+      onclick="logoutAdmin()"
+      style="background:#dc2626;color:white;padding:9px 13px;border-radius:10px;"
+    >
+      Logout
+    </button>
+  </div>
 
-    <div class="form-group">
+  <div class="admin-stats">
+
+    <div class="stat">
+      Products
+      <b id="totalProducts">0</b>
+    </div>
+
+    <div class="stat">
+      Stock
+      <b id="stockProducts">0</b>
+    </div>
+
+    <div class="stat">
+      Cart Items
+      <b id="totalCart">0</b>
+    </div>
+
+  </div>
+
+  <button class="add-btn" onclick="openProductForm()">
+    ➕ নতুন Product যোগ করুন
+  </button>
+
+  <!-- PRODUCT FORM -->
+  <div id="formBox" class="form-box">
+
+    <h3 id="formTitle">➕ নতুন Product</h3>
+
+    <input type="hidden" id="editId">
+
+    <div class="field">
       <label>Product Name</label>
-      <input id="productName" placeholder="যেমন: Smart Watch">
+      <input
+        id="productName"
+        type="text"
+        placeholder="যেমন: Wireless Earbuds"
+      >
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <label>Price (৳)</label>
-      <input id="productPrice" type="number" placeholder="1290">
+      <input
+        id="productPrice"
+        type="number"
+        placeholder="যেমন: 850"
+      >
     </div>
 
-    <div class="form-group full">
-      <label>Image URL</label>
-      <input id="productImage" placeholder="https://example.com/image.jpg">
+    <div class="field">
+      <label>Product Image</label>
+
+      <div class="upload-area">
+
+        <p>📷 Gallery থেকে ছবি নির্বাচন করুন</p>
+
+        <input
+          id="imageFile"
+          type="file"
+          accept="image/*"
+          onchange="handleImageUpload(event)"
+        >
+
+        <img
+          id="imagePreview"
+          class="image-preview"
+          alt="Preview"
+        >
+
+      </div>
     </div>
 
-    <div class="form-group full">
-      <label>Description</label>
-      <textarea id="productDesc" placeholder="পণ্যের বিবরণ লিখুন"></textarea>
+    <div class="field">
+      <label>অথবা Image URL</label>
+
+      <input
+        id="imageUrl"
+        type="url"
+        placeholder="https://example.com/image.jpg"
+        oninput="previewUrlImage()"
+      >
+    </div>
+
+    <div class="field">
+      <label>Product Description</label>
+
+      <textarea
+        id="productDescription"
+        placeholder="পণ্যের বিস্তারিত লিখুন..."
+      ></textarea>
+    </div>
+
+    <div class="field">
+
+      <label>Stock Status</label>
+
+      <select id="productStock">
+        <option value="true">🟢 Stock Available</option>
+        <option value="false">🔴 Out of Stock</option>
+      </select>
+
+    </div>
+
+    <div class="form-buttons">
+
+      <button class="save-btn" onclick="saveProduct()">
+        💾 Save Product
+      </button>
+
+      <button class="cancel-btn" onclick="closeProductForm()">
+        Cancel
+      </button>
+
     </div>
 
   </div>
 
-  <div class="admin-actions">
+  <h3 style="margin-bottom:15px;">📦 Product Management</h3>
 
-    <button class="save" onclick="saveProduct()">
-      💾 Save Product
-    </button>
-
-    <button class="cancel" onclick="resetForm()">
-      ❌ Cancel
-    </button>
-
-  </div>
-
-  <div class="admin-products">
-    <h3>📦 Manage Products</h3>
-    <br>
-    <div id="adminProducts"></div>
-  </div>
+  <div id="adminProducts"></div>
 
 </section>
 
-<!-- CART -->
+<footer>
+  <h3>TiTu Shop</h3>
+  <p style="margin-top:8px;">
+    Online Shopping Made Easy 🛍️
+  </p>
+  <p style="margin-top:10px;">
+    WhatsApp: 01970765919
+  </p>
+</footer>
 
-<div id="cart" class="cart">
 
-  <h2>🛒 Your Cart</h2>
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
 
-  <div id="cartItems"></div>
+  <div class="modal-box">
 
-  <div class="cart-total">
-    Total: ৳<span id="cartTotal">0</span>
+    <div class="modal-head">
+
+      <h2 id="modalProductName">Product</h2>
+
+      <button class="close" onclick="closeProductModal()">
+        ×
+      </button>
+
+    </div>
+
+    <img
+      id="modalImage"
+      style="width:100%;max-height:300px;object-fit:cover;border-radius:14px;"
+    >
+
+    <p
+      id="modalDescription"
+      style="margin-top:15px;color:#666;"
+    ></p>
+
+    <div
+      id="modalPrice"
+      class="price"
+      style="margin-top:15px;"
+    ></div>
+
+    <button
+      id="modalCartButton"
+      class="cart-btn"
+      style="width:100%;margin-top:10px;"
+    >
+      🛒 Add to Cart
+    </button>
+
+    <button
+      id="modalWhatsapp"
+      class="whatsapp"
+    >
+      💬 WhatsApp এ অর্ডার করুন
+    </button>
+
   </div>
-
-  <button class="checkout" onclick="checkoutWhatsApp()">
-    📲 WhatsApp এ অর্ডার করুন
-  </button>
 
 </div>
 
-<!-- ADMIN LOGIN -->
 
+<!-- CART MODAL -->
+<div id="cartModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>🛒 Your Cart</h2>
+
+      <button class="close" onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+      Total: ৳<span id="cartTotal">0</span>
+    </div>
+
+    <button
+      class="whatsapp"
+      onclick="checkoutWhatsApp()"
+    >
+      💬 WhatsApp এ অর্ডার করুন
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- LOGIN MODAL -->
 <div id="loginModal" class="modal">
 
   <div class="modal-box">
 
-    <h2>🔐 Admin Login</h2>
+    <div class="modal-head">
 
-    <p>Admin Password দিন</p>
+      <h2>🔐 Admin Login</h2>
 
-    <input
-      type="password"
-      id="adminPassword"
-      placeholder="Password"
+      <button class="close" onclick="closeLogin()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="field">
+
+      <label>Admin Password</label>
+
+      <input
+        id="adminPassword"
+        type="password"
+        placeholder="Password লিখুন"
+      >
+
+    </div>
+
+    <button
+      class="login-btn"
+      onclick="checkAdminLogin()"
     >
-
-    <button onclick="loginAdmin()">
       Login
     </button>
 
-    <button class="close" onclick="closeLogin()">
-      Cancel
-    </button>
+    <p
+      style="margin-top:12px;color:#777;font-size:13px;"
+    >
+      Default password: <b>123456</b>
+    </p>
 
   </div>
 
 </div>
 
-<footer>
-  <h3>TiTu Shop</h3>
-  <p>Quality Products • Fast Delivery • Easy Ordering</p>
-  <br>
-  <p>© 2026 TiTu Shop. All Rights Reserved.</p>
-</footer>
 
 <script>
 
-/* =========================
-   SETTINGS
-========================= */
+/* =========================================
+   TiTu SHOP SETTINGS
+========================================= */
 
+// আপনার WhatsApp Number
 const WHATSAPP_NUMBER = "8801970765919";
 
-const ADMIN_PASSWORD = "1234";
+// Admin Password
+const ADMIN_PASSWORD = "123456";
 
 
-/* =========================
+/* =========================================
    DEFAULT PRODUCTS
-========================= */
+========================================= */
 
-let products = JSON.parse(localStorage.getItem("tituProducts")) || [
+let products = JSON.parse(
+  localStorage.getItem("titu_products")
+) || [
 
   {
-    id:1,
-    name:"Smart Watch",
-    price:1290,
-    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",
-    desc:"সুন্দর ও আধুনিক Smart Watch"
+    id: 1,
+    name: "Wireless Earbuds",
+    price: 850,
+    image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800",
+    description: "High quality wireless earbuds.",
+    stock: true
   },
 
   {
-    id:2,
-    name:"Bluetooth Earbuds",
-    price:850,
-    image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600",
-    desc:"High quality wireless earbuds"
+    id: 2,
+    name: "Smart Watch",
+    price: 1250,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+    description: "Stylish smart watch for everyday use.",
+    stock: true
   },
 
   {
-    id:3,
-    name:"Fashion Sunglasses",
-    price:650,
-    image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600",
-    desc:"Stylish sunglasses"
+    id: 3,
+    name: "Premium Sunglasses",
+    price: 650,
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",
+    description: "Premium stylish sunglasses.",
+    stock: true
   },
 
   {
-    id:4,
-    name:"Mobile Holder",
-    price:350,
-    image:"https://images.unsplash.com/photo-1609592424811-6f1f4b8a5b26?w=600",
-    desc:"Strong mobile phone holder"
+    id: 4,
+    name: "Mini Bluetooth Speaker",
+    price: 750,
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800",
+    description: "Portable Bluetooth speaker.",
+    stock: true
   }
 
 ];
 
-let cart = [];
 
-let editingId = null;
+/* =========================================
+   CART
+========================================= */
+
+let cart =
+  JSON.parse(localStorage.getItem("titu_cart")) || [];
 
 
-/* =========================
-   SAVE PRODUCTS
-========================= */
+/* =========================================
+   SAVE DATA
+========================================= */
 
-function saveProducts(){
+function saveData(){
 
   localStorage.setItem(
-    "tituProducts",
+    "titu_products",
     JSON.stringify(products)
+  );
+
+  localStorage.setItem(
+    "titu_cart",
+    JSON.stringify(cart)
   );
 
 }
 
 
-/* =========================
-   SHOW PRODUCTS
-========================= */
+/* =========================================
+   RENDER PRODUCTS
+========================================= */
 
-function showProducts(){
+function renderProducts(){
 
   const container =
     document.getElementById("products");
 
   const search =
     document.getElementById("searchInput")
-    .value
-    .toLowerCase();
+      .value
+      .toLowerCase()
+      .trim();
 
   const filtered =
     products.filter(p =>
-      p.name.toLowerCase().includes(search)
+      p.name.toLowerCase().includes(search) ||
+      p.description.toLowerCase().includes(search)
     );
 
   if(filtered.length === 0){
 
-    container.innerHTML =
-      '<div class="empty">😔 কোনো পণ্য পাওয়া যায়নি</div>';
+    container.innerHTML = `
+      <div class="empty">
+        <h3>😔 কোনো Product পাওয়া যায়নি</h3>
+        <p style="margin-top:8px;">
+          অন্য কিছু লিখে খুঁজুন।
+        </p>
+      </div>
+    `;
 
     return;
-
   }
 
-  container.innerHTML =
-    filtered.map(p => `
 
-      <div class="card">
+  container.innerHTML =
+    filtered.map(product => `
+
+      <div class="product">
 
         <img
           class="product-img"
-          src="${p.image}"
+          src="${escapeHtml(product.image)}"
+          alt="${escapeHtml(product.name)}"
           onerror="this.src='https://via.placeholder.com/600x400?text=TiTu+Shop'"
         >
 
-        <div class="card-body">
+        <div class="product-info">
 
-          <h3>${p.name}</h3>
-
-          <div class="price">
-            ৳${Number(p.price).toLocaleString()}
+          <div class="product-name">
+            ${escapeHtml(product.name)}
           </div>
 
-          <p class="desc">
-            ${p.desc}
-          </p>
+          <div class="product-desc">
+            ${escapeHtml(product.description)}
+          </div>
 
-          <div class="actions">
+          <div class="price">
+            ৳${Number(product.price).toLocaleString("en-BD")}
+          </div>
+
+          <div class="stock ${
+            product.stock
+            ? "available"
+            : "unavailable"
+          }">
+
+            ${
+              product.stock
+              ? "🟢 Stock Available"
+              : "🔴 Out of Stock"
+            }
+
+          </div>
+
+          <div class="product-buttons">
 
             <button
-              class="btn whatsapp"
-              onclick="orderProduct(${p.id})"
+              class="buy-btn"
+              ${
+                !product.stock
+                ? "disabled style='opacity:.5'"
+                : ""
+              }
+              onclick="openProduct(${product.id})"
             >
-              📲 Order
+              👁️ View
             </button>
 
             <button
-              class="btn cart-btn"
-              onclick="addToCart(${p.id})"
+              class="cart-btn"
+              ${
+                !product.stock
+                ? "disabled style='opacity:.5'"
+                : ""
+              }
+              onclick="addToCart(${product.id})"
             >
-              🛒 Cart
+              🛒
             </button>
 
           </div>
@@ -724,29 +1096,107 @@ function showProducts(){
 }
 
 
-/* =========================
-   WHATSAPP SINGLE PRODUCT
-========================= */
+/* =========================================
+   OPEN PRODUCT
+========================================= */
 
-function orderProduct(id){
+function openProduct(id){
 
   const product =
     products.find(p => p.id === id);
 
   if(!product) return;
 
+  document.getElementById(
+    "modalProductName"
+  ).textContent = product.name;
+
+  document.getElementById(
+    "modalImage"
+  ).src = product.image;
+
+  document.getElementById(
+    "modalDescription"
+  ).textContent = product.description;
+
+  document.getElementById(
+    "modalPrice"
+  ).textContent =
+    "৳" + Number(product.price).toLocaleString("en-BD");
+
+
+  const cartButton =
+    document.getElementById("modalCartButton");
+
+  const whatsappButton =
+    document.getElementById("modalWhatsapp");
+
+
+  if(product.stock){
+
+    cartButton.style.display = "block";
+
+    cartButton.onclick = function(){
+
+      addToCart(product.id);
+      closeProductModal();
+
+    };
+
+    whatsappButton.style.display = "block";
+
+    whatsappButton.onclick = function(){
+
+      orderProductWhatsApp(product);
+
+    };
+
+  }else{
+
+    cartButton.style.display = "none";
+    whatsappButton.style.display = "none";
+
+  }
+
+
+  document
+    .getElementById("productModal")
+    .classList.add("show");
+
+}
+
+
+/* =========================================
+   CLOSE PRODUCT
+========================================= */
+
+function closeProductModal(){
+
+  document
+    .getElementById("productModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================
+   WHATSAPP SINGLE PRODUCT
+========================================= */
+
+function orderProductWhatsApp(product){
+
   const message =
 `🛍️ TiTu Shop Order
 
-📦 Product: ${product.name}
-💰 Price: ৳${product.price}
-📦 Quantity: 1
+Product: ${product.name}
+Price: ৳${product.price}
 
-👤 Customer Name:
-📱 Phone Number:
-📍 Delivery Address:
+আমি এই পণ্যটি অর্ডার করতে চাই।
 
-আমি এই পণ্যটি অর্ডার করতে চাই।`;
+নাম:
+ঠিকানা:
+মোবাইল নম্বর:
+পরিমাণ: 1`;
 
   const url =
     "https://wa.me/" +
@@ -754,74 +1204,194 @@ function orderProduct(id){
     "?text=" +
     encodeURIComponent(message);
 
-  window.open(url,"_blank");
+  window.open(url, "_blank");
 
 }
 
 
-/* =========================
-   CART
-========================= */
+/* =========================================
+   ADD CART
+========================================= */
 
 function addToCart(id){
 
   const product =
     products.find(p => p.id === id);
 
-  if(!product) return;
+  if(!product || !product.stock){
 
-  cart.push(product);
+    alert("এই Product বর্তমানে Stock এ নেই।");
+    return;
 
-  updateCart();
+  }
 
-  alert("✅ পণ্যটি Cart-এ যোগ হয়েছে!");
+
+  const existing =
+    cart.find(item => item.id === id);
+
+
+  if(existing){
+
+    existing.qty++;
+
+  }else{
+
+    cart.push({
+      id:id,
+      qty:1
+    });
+
+  }
+
+
+  saveData();
+  updateCartCount();
+
+  alert("✅ Product Cart-এ যোগ হয়েছে!");
 
 }
 
 
-function updateCart(){
+/* =========================================
+   CART COUNT
+========================================= */
 
-  document.getElementById("cartCount")
-    .innerText = cart.length;
+function updateCartCount(){
 
-  const items =
+  const count =
+    cart.reduce(
+      (sum,item) => sum + item.qty,
+      0
+    );
+
+  document.getElementById(
+    "cartCount"
+  ).textContent = count;
+
+  document.getElementById(
+    "totalCart"
+  ).textContent = count;
+
+}
+
+
+/* =========================================
+   OPEN CART
+========================================= */
+
+function openCart(){
+
+  renderCart();
+
+  document
+    .getElementById("cartModal")
+    .classList.add("show");
+
+}
+
+
+/* =========================================
+   CLOSE CART
+========================================= */
+
+function closeCart(){
+
+  document
+    .getElementById("cartModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================
+   RENDER CART
+========================================= */
+
+function renderCart(){
+
+  const container =
     document.getElementById("cartItems");
+
+  let total = 0;
+
 
   if(cart.length === 0){
 
-    items.innerHTML =
-      '<div class="empty">Cart খালি</div>';
+    container.innerHTML = `
+      <div class="empty">
+        🛒 Cart এখনও খালি।
+      </div>
+    `;
 
-    document.getElementById("cartTotal")
-      .innerText = "0";
+    document.getElementById(
+      "cartTotal"
+    ).textContent = "0";
 
     return;
 
   }
 
-  let total = 0;
 
-  items.innerHTML =
-    cart.map((p,index) => {
+  container.innerHTML =
+    cart.map(item => {
 
-      total += Number(p.price);
+      const product =
+        products.find(p => p.id === item.id);
+
+      if(!product) return "";
+
+      const subtotal =
+        product.price * item.qty;
+
+      total += subtotal;
+
 
       return `
 
         <div class="cart-item">
 
-          <span>
-            ${p.name}
-            <br>
-            <b>৳${p.price}</b>
-          </span>
-
-          <button
-            onclick="removeCart(${index})"
-            style="border:0;background:#dc2626;color:white;padding:6px;border-radius:6px;"
+          <img
+            src="${escapeHtml(product.image)}"
           >
-            ✕
-          </button>
+
+          <div class="cart-info">
+
+            <b>
+              ${escapeHtml(product.name)}
+            </b>
+
+            <div>
+              ৳${product.price}
+            </div>
+
+            <div class="qty">
+
+              <button
+                onclick="changeQty(${product.id},-1)"
+              >
+                −
+              </button>
+
+              <span>
+                ${item.qty}
+              </span>
+
+              <button
+                onclick="changeQty(${product.id},1)"
+              >
+                +
+              </button>
+
+              <button
+                onclick="removeCart(${product.id})"
+                style="background:#fee2e2;color:#dc2626;"
+              >
+                🗑️
+              </button>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -829,74 +1399,113 @@ function updateCart(){
 
     }).join("");
 
-  document.getElementById("cartTotal")
-    .innerText = total.toLocaleString();
+
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+    total.toLocaleString("en-BD");
 
 }
 
 
-function removeCart(index){
+/* =========================================
+   CHANGE QUANTITY
+========================================= */
 
-  cart.splice(index,1);
+function changeQty(id, amount){
 
-  updateCart();
+  const item =
+    cart.find(i => i.id === id);
+
+  if(!item) return;
+
+  item.qty += amount;
+
+  if(item.qty <= 0){
+
+    cart =
+      cart.filter(i => i.id !== id);
+
+  }
+
+  saveData();
+  updateCartCount();
+  renderCart();
 
 }
 
 
-function toggleCart(){
+/* =========================================
+   REMOVE CART
+========================================= */
 
-  const cartBox =
-    document.getElementById("cart");
+function removeCart(id){
 
-  cartBox.style.display =
-    cartBox.style.display === "block"
-    ? "none"
-    : "block";
+  cart =
+    cart.filter(i => i.id !== id);
+
+  saveData();
+  updateCartCount();
+  renderCart();
 
 }
 
 
-/* =========================
-   CART WHATSAPP CHECKOUT
-========================= */
+/* =========================================
+   WHATSAPP CHECKOUT
+========================================= */
 
 function checkoutWhatsApp(){
 
   if(cart.length === 0){
 
-    alert("❌ আপনার Cart খালি!");
-
+    alert("আপনার Cart খালি।");
     return;
 
   }
 
+
+  let message =
+`🛍️ TiTu Shop Order
+
+`;
+
   let total = 0;
 
-  let productText = "";
 
-  cart.forEach((p,index) => {
+  cart.forEach(item => {
 
-    total += Number(p.price);
+    const product =
+      products.find(p => p.id === item.id);
 
-    productText +=
-      `${index+1}. ${p.name} - ৳${p.price}\n`;
+    if(!product) return;
+
+    const subtotal =
+      product.price * item.qty;
+
+    total += subtotal;
+
+
+    message +=
+`📦 ${product.name}
+Quantity: ${item.qty}
+Price: ৳${product.price}
+Subtotal: ৳${subtotal}
+
+`;
 
   });
 
-  const message =
-`🛍️ TiTu Shop Order
 
-📦 Products:
-${productText}
+  message +=
+`💰 Total: ৳${total}
 
-💰 Total: ৳${total}
+নাম:
+ঠিকানা:
+মোবাইল নম্বর:
 
-👤 Customer Name:
-📱 Phone Number:
-📍 Delivery Address:
+দয়া করে আমার অর্ডারটি গ্রহণ করুন।`;
 
-আমি এই অর্ডারটি করতে চাই।`;
 
   const url =
     "https://wa.me/" +
@@ -904,53 +1513,56 @@ ${productText}
     "?text=" +
     encodeURIComponent(message);
 
-  window.open(url,"_blank");
+
+  window.open(url, "_blank");
 
 }
 
 
-/* =========================
+/* =========================================
    ADMIN LOGIN
-========================= */
+========================================= */
 
-function openAdmin(){
+function adminLogin(){
 
-  document.getElementById("loginModal")
-    .style.display = "flex";
+  if(
+    sessionStorage.getItem("titu_admin") === "yes"
+  ){
+
+    showAdmin();
+    return;
+
+  }
+
+
+  document
+    .getElementById("loginModal")
+    .classList.add("show");
 
 }
 
 
-function closeLogin(){
+/* =========================================
+   CHECK LOGIN
+========================================= */
 
-  document.getElementById("loginModal")
-    .style.display = "none";
-
-}
-
-
-function loginAdmin(){
+function checkAdminLogin(){
 
   const password =
-    document.getElementById("adminPassword").value;
+    document.getElementById(
+      "adminPassword"
+    ).value;
+
 
   if(password === ADMIN_PASSWORD){
 
+    sessionStorage.setItem(
+      "titu_admin",
+      "yes"
+    );
+
     closeLogin();
-
-    document.getElementById("adminPanel")
-      .style.display = "block";
-
-    renderAdminProducts();
-
-    window.scrollTo({
-      top:document.getElementById("adminPanel")
-        .offsetTop - 80,
-      behavior:"smooth"
-    });
-
-    document.getElementById("adminPassword")
-      .value = "";
+    showAdmin();
 
   }else{
 
@@ -961,54 +1573,567 @@ function loginAdmin(){
 }
 
 
-/* =========================
-   ADMIN PRODUCT LIST
-========================= */
+/* =========================================
+   CLOSE LOGIN
+========================================= */
 
-function renderAdminProducts(){
+function closeLogin(){
 
-  const box =
-    document.getElementById("adminProducts");
+  document
+    .getElementById("loginModal")
+    .classList.remove("show");
 
-  if(products.length === 0){
+}
 
-    box.innerHTML =
-      '<div class="empty">কোনো Product নেই</div>';
+
+/* =========================================
+   SHOW ADMIN
+========================================= */
+
+function showAdmin(){
+
+  document
+    .getElementById("adminPanel")
+    .classList.add("show");
+
+  renderAdminProducts();
+
+  document
+    .getElementById("adminPanel")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logoutAdmin(){
+
+  sessionStorage.removeItem(
+    "titu_admin"
+  );
+
+  document
+    .getElementById("adminPanel")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================
+   OPEN PRODUCT FORM
+========================================= */
+
+function openProductForm(){
+
+  document
+    .getElementById("formBox")
+    .classList.add("show");
+
+  document.getElementById(
+    "formTitle"
+  ).textContent = "➕ নতুন Product";
+
+  document.getElementById(
+    "editId"
+  ).value = "";
+
+  document.getElementById(
+    "productName"
+  ).value = "";
+
+  document.getElementById(
+    "productPrice"
+  ).value = "";
+
+  document.getElementById(
+    "imageUrl"
+  ).value = "";
+
+  document.getElementById(
+    "productDescription"
+  ).value = "";
+
+  document.getElementById(
+    "productStock"
+  ).value = "true";
+
+  document.getElementById(
+    "imageFile"
+  ).value = "";
+
+  document.getElementById(
+    "imagePreview"
+  ).style.display = "none";
+
+
+  document
+    .getElementById("formBox")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   CLOSE FORM
+========================================= */
+
+function closeProductForm(){
+
+  document
+    .getElementById("formBox")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================
+   IMAGE UPLOAD FROM GALLERY
+========================================= */
+
+function handleImageUpload(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+
+  if(!file.type.startsWith("image/")){
+
+    alert("শুধু Image file নির্বাচন করুন।");
+    return;
+
+  }
+
+
+  // 2MB limit
+  if(file.size > 2 * 1024 * 1024){
+
+    alert(
+      "ছবির size 2MB-এর কম রাখুন।"
+    );
+
+    event.target.value = "";
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload = function(e){
+
+    const preview =
+      document.getElementById(
+        "imagePreview"
+      );
+
+    preview.src = e.target.result;
+    preview.style.display = "block";
+
+
+    // Gallery image automatically
+    // converts to Base64 and stores locally
+    preview.dataset.image =
+      e.target.result;
+
+  };
+
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =========================================
+   URL IMAGE PREVIEW
+========================================= */
+
+function previewUrlImage(){
+
+  const url =
+    document.getElementById(
+      "imageUrl"
+    ).value.trim();
+
+
+  if(!url) return;
+
+
+  const preview =
+    document.getElementById(
+      "imagePreview"
+    );
+
+  preview.src = url;
+  preview.style.display = "block";
+
+  preview.dataset.image = url;
+
+}
+
+
+/* =========================================
+   SAVE PRODUCT
+========================================= */
+
+function saveProduct(){
+
+  const name =
+    document.getElementById(
+      "productName"
+    ).value.trim();
+
+  const price =
+    Number(
+      document.getElementById(
+        "productPrice"
+      ).value
+    );
+
+  const description =
+    document.getElementById(
+      "productDescription"
+    ).value.trim();
+
+  const stock =
+    document.getElementById(
+      "productStock"
+    ).value === "true";
+
+
+  const editId =
+    document.getElementById(
+      "editId"
+    ).value;
+
+
+  const imageUrl =
+    document.getElementById(
+      "imageUrl"
+    ).value.trim();
+
+
+  const preview =
+    document.getElementById(
+      "imagePreview"
+    );
+
+
+  const image =
+    preview.dataset.image ||
+    imageUrl;
+
+
+  if(!name){
+
+    alert("Product Name দিন।");
+    return;
+
+  }
+
+
+  if(!price || price <= 0){
+
+    alert("সঠিক Price দিন।");
+    return;
+
+  }
+
+
+  if(!image){
+
+    alert(
+      "Gallery থেকে ছবি নির্বাচন করুন অথবা Image URL দিন।"
+    );
 
     return;
 
   }
 
-  box.innerHTML =
-    products.map(p => `
 
-      <div class="admin-item">
+  /* EDIT */
 
-        <div class="admin-item-info">
+  if(editId){
 
-          <b>${p.name}</b>
+    const index =
+      products.findIndex(
+        p => p.id == editId
+      );
 
-          <br>
+
+    if(index !== -1){
+
+      products[index] = {
+
+        ...products[index],
+
+        name:name,
+        price:price,
+        image:image,
+        description:description,
+        stock:stock
+
+      };
+
+    }
+
+    alert("✅ Product Update হয়েছে!");
+
+  }
+
+  /* ADD */
+
+  else{
+
+    products.unshift({
+
+      id:Date.now(),
+
+      name:name,
+
+      price:price,
+
+      image:image,
+
+      description:description,
+
+      stock:stock
+
+    });
+
+    alert("✅ নতুন Product যোগ হয়েছে!");
+
+  }
+
+
+  saveData();
+
+  renderProducts();
+
+  renderAdminProducts();
+
+  closeProductForm();
+
+}
+
+
+/* =========================================
+   EDIT PRODUCT
+========================================= */
+
+function editProduct(id){
+
+  const product =
+    products.find(p => p.id === id);
+
+  if(!product) return;
+
+
+  document
+    .getElementById("formBox")
+    .classList.add("show");
+
+
+  document.getElementById(
+    "formTitle"
+  ).textContent =
+    "✏️ Product Edit";
+
+
+  document.getElementById(
+    "editId"
+  ).value = product.id;
+
+
+  document.getElementById(
+    "productName"
+  ).value = product.name;
+
+
+  document.getElementById(
+    "productPrice"
+  ).value = product.price;
+
+
+  document.getElementById(
+    "imageUrl"
+  ).value = "";
+
+
+  document.getElementById(
+    "productDescription"
+  ).value =
+    product.description;
+
+
+  document.getElementById(
+    "productStock"
+  ).value =
+    product.stock ? "true" : "false";
+
+
+  const preview =
+    document.getElementById(
+      "imagePreview"
+    );
+
+  preview.src = product.image;
+  preview.style.display = "block";
+  preview.dataset.image = product.image;
+
+
+  document
+    .getElementById("formBox")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   DELETE PRODUCT
+========================================= */
+
+function deleteProduct(id){
+
+  const product =
+    products.find(p => p.id === id);
+
+  if(!product) return;
+
+
+  const ok =
+    confirm(
+      `"${product.name}" Delete করতে চান?`
+    );
+
+
+  if(!ok) return;
+
+
+  products =
+    products.filter(
+      p => p.id !== id
+    );
+
+
+  cart =
+    cart.filter(
+      item => item.id !== id
+    );
+
+
+  saveData();
+
+  renderProducts();
+
+  renderAdminProducts();
+
+  updateCartCount();
+
+
+  alert("🗑️ Product Delete হয়েছে!");
+
+}
+
+
+/* =========================================
+   ADMIN PRODUCT LIST
+========================================= */
+
+function renderAdminProducts(){
+
+  const container =
+    document.getElementById(
+      "adminProducts"
+    );
+
+
+  document.getElementById(
+    "totalProducts"
+  ).textContent =
+    products.length;
+
+
+  document.getElementById(
+    "stockProducts"
+  ).textContent =
+    products.filter(
+      p => p.stock
+    ).length;
+
+
+  if(products.length === 0){
+
+    container.innerHTML = `
+      <div class="empty">
+        কোনো Product নেই।
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    products.map(product => `
+
+      <div class="admin-product">
+
+        <img
+          src="${escapeHtml(product.image)}"
+          onerror="this.src='https://via.placeholder.com/100?text=TiTu'"
+        >
+
+        <div class="admin-product-info">
+
+          <b>
+            ${escapeHtml(product.name)}
+          </b>
 
           <span>
-            ৳${Number(p.price).toLocaleString()}
+            ৳${Number(product.price).toLocaleString("en-BD")}
           </span>
+
+          <div style="font-size:13px;margin-top:4px;">
+            ${
+              product.stock
+              ? "🟢 Available"
+              : "🔴 Out of Stock"
+            }
+          </div>
 
         </div>
 
-        <button
-          class="edit"
-          onclick="editProduct(${p.id})"
-        >
-          ✏️ Edit
-        </button>
+        <div class="admin-actions">
 
-        <button
-          class="delete"
-          onclick="deleteProduct(${p.id})"
-        >
-          🗑️ Delete
-        </button>
+          <button
+            class="edit-btn"
+            onclick="editProduct(${product.id})"
+          >
+            ✏️
+          </button>
+
+          <button
+            class="delete-btn"
+            onclick="deleteProduct(${product.id})"
+          >
+            🗑️
+          </button>
+
+        </div>
 
       </div>
 
@@ -1017,175 +2142,55 @@ function renderAdminProducts(){
 }
 
 
-/* =========================
-   ADD / EDIT PRODUCT
-========================= */
+/* =========================================
+   SECURITY HELPER
+========================================= */
 
-function saveProduct(){
+function escapeHtml(text){
 
-  const name =
-    document.getElementById("productName").value.trim();
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-  const price =
-    document.getElementById("productPrice").value;
+}
 
-  const image =
-    document.getElementById("productImage").value.trim();
 
-  const desc =
-    document.getElementById("productDesc").value.trim();
+/* =========================================
+   CLOSE MODALS ON BACKGROUND CLICK
+========================================= */
 
-  if(!name || !price){
+document.addEventListener(
+  "click",
+  function(e){
 
-    alert("⚠️ Product Name এবং Price দিন!");
+    if(e.target.classList.contains("modal")){
 
-    return;
+      e.target.classList.remove("show");
+
+    }
 
   }
+);
 
-  if(editingId){
 
-    const product =
-      products.find(p => p.id === editingId);
+/* =========================================
+   INITIALIZE
+========================================= */
 
-    product.name = name;
-    product.price = Number(price);
-    product.image = image ||
-      "https://via.placeholder.com/600x400?text=TiTu+Shop";
-    product.desc = desc;
+renderProducts();
 
-    alert("✅ Product Updated!");
+updateCartCount();
 
-  }else{
+if(
+  sessionStorage.getItem("titu_admin") === "yes"
+){
 
-    const newProduct = {
-
-      id:Date.now(),
-
-      name:name,
-
-      price:Number(price),
-
-      image:image ||
-        "https://via.placeholder.com/600x400?text=TiTu+Shop",
-
-      desc:desc
-
-    };
-
-    products.push(newProduct);
-
-    alert("✅ Product Added!");
-
-  }
-
-  saveProducts();
-
-  resetForm();
-
-  showProducts();
-
-  renderAdminProducts();
+  showAdmin();
 
 }
-
-
-/* =========================
-   EDIT PRODUCT
-========================= */
-
-function editProduct(id){
-
-  const p =
-    products.find(product => product.id === id);
-
-  if(!p) return;
-
-  editingId = id;
-
-  document.getElementById("productName")
-    .value = p.name;
-
-  document.getElementById("productPrice")
-    .value = p.price;
-
-  document.getElementById("productImage")
-    .value = p.image;
-
-  document.getElementById("productDesc")
-    .value = p.desc;
-
-  window.scrollTo({
-    top:document.getElementById("adminPanel")
-      .offsetTop - 80,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================
-   DELETE PRODUCT
-========================= */
-
-function deleteProduct(id){
-
-  const p =
-    products.find(product => product.id === id);
-
-  if(!p) return;
-
-  const confirmDelete =
-    confirm(
-      `আপনি কি "${p.name}" Delete করতে চান?`
-    );
-
-  if(!confirmDelete) return;
-
-  products =
-    products.filter(product => product.id !== id);
-
-  saveProducts();
-
-  showProducts();
-
-  renderAdminProducts();
-
-  alert("🗑️ Product Deleted!");
-
-}
-
-
-/* =========================
-   RESET FORM
-========================= */
-
-function resetForm(){
-
-  editingId = null;
-
-  document.getElementById("productName")
-    .value = "";
-
-  document.getElementById("productPrice")
-    .value = "";
-
-  document.getElementById("productImage")
-    .value = "";
-
-  document.getElementById("productDesc")
-    .value = "";
-
-}
-
-
-/* =========================
-   START
-========================= */
-
-showProducts();
-
-updateCart();
 
 </script>
 
